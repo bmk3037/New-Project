@@ -158,7 +158,7 @@ def main():
     h1_d, h1_w = kr.path("개발에", 116, x=80, y=356, tracking=-0.04)
     h2a_d, h2a_w = kr.path("실패는 ", 116, x=80, y=492, tracking=-0.04)
     h2b_d, _ = kr.path("없다.", 116, x=80 + h2a_w, y=492, tracking=-0.04)
-    og_label_d, _ = mono.path("DATA INFRASTRUCTURE → AI SOLUTIONS", 15, x=82, y=566, tracking=0.12, by="cap")
+    og_label_d, _ = mono.path("FROM DATA TO IT SOLUTIONS", 15, x=82, y=566, tracking=0.12, by="cap")
     og = svg(1200, 630,
              f'<rect width="1200" height="630" fill="{WHITE}"/>'
              f'<g transform="translate(80 64) scale(.6)">{logo_body}</g>'

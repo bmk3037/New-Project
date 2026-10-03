@@ -15,9 +15,10 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="nav">
+  <header class="nav" id="nav">
     <a href="index.html" class="logo-img"><img src="brand/logo/logo-horizontal-on-light.svg" alt="노빠꾸컴퍼니"></a>
-    <nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기"><span></span><span></span></button>
+    <nav id="menu">
       <a href="#voice">톤앤매너</a>
       <a href="#logo">로고</a>
       <a href="#color">컬러</a>
@@ -30,15 +31,15 @@
     <section class="section">
       <p class="eyebrow">BRAND GUIDE v1.2</p>
       <h1 class="guide-title">노빠꾸컴퍼니<br>브랜드 가이드</h1>
-      <p class="lead">개발에 실패는 없다. 데이터 인프라부터 AI 솔루션까지 만드는 회사가 <b>말하고, 보이고, 일하는 방식</b>을 정리했습니다.</p>
+      <p class="lead">개발에 실패는 없다. 서버 뒤의 데이터부터 IT 솔루션까지 만드는 회사가 <b>말하고, 보이고, 일하는 방식</b>을 정리했습니다.</p>
       <div class="kv">
-        <div><span>하는 일</span>데이터 인프라부터 AI 솔루션까지 개발하는 소프트웨어 회사</div>
-        <div><span>미션</span>흩어진 데이터를 멈추지 않는 흐름으로, 그 흐름을 실제로 일하는 AI로 만든다.</div>
+        <div><span>하는 일</span>데이터부터 IT 솔루션까지 개발하는 소프트웨어 회사 — 현장은 동인엔시스, 서버 뒤는 노빠꾸컴퍼니</div>
+        <div><span>미션</span>흩어진 현장 데이터를, 현장이 실제로 쓰는 IT 솔루션과 AI로 만든다.</div>
         <div><span>슬로건</span>개발에 실패는 없다. / No Turning Back.</div>
         <div><span>브랜드 정신</span>노빠꾸 정신 — 시작했으면 끝까지. 실패는 다음 버전을 위한 데이터.</div>
       </div>
       <div class="changes">
-        <div><span>하는 일</span><s>브랜드 인큐베이팅</s><b>데이터 인프라 → AI</b></div>
+        <div><span>하는 일</span><s>브랜드 인큐베이팅</s><b>데이터 → IT 솔루션</b></div>
         <div><span>심볼</span><s>직진 화살표</s><b>ㄴ 애로우</b></div>
         <div><span>메인 컬러</span><s>Signal Red</s><b>Dongin Blue · Red</b></div>
         <div><span>서체</span><s>Black Han Sans</s><b>Pretendard · Archivo</b></div>
@@ -109,8 +110,8 @@
           </g>
         </svg>
         <ol class="parts">
-          <li><span>01</span><div><b>데이터 블록 — 데이터 인프라</b><p>작은 블록이 아래로 갈수록 커져 꽉 찬 획이 됩니다. 흩어진 데이터가 모여 흐름이 됩니다.</p></div></li>
-          <li><span>02</span><div><b>꺾이는 파이프 — 데이터 플랫폼</b><p>아래로 내려와 한 번 꺾입니다. 바닥을 다진 뒤 앞으로 갑니다.</p></div></li>
+          <li><span>01</span><div><b>데이터 블록 — 데이터 플랫폼</b><p>작은 블록이 아래로 갈수록 커져 꽉 찬 획이 됩니다. 흩어진 데이터가 모여 흐름이 됩니다.</p></div></li>
+          <li><span>02</span><div><b>꺾이는 파이프 — IT 솔루션</b><p>아래로 내려와 한 번 꺾입니다. 데이터를 현장의 화면과 시스템으로 잇습니다.</p></div></li>
           <li><span>03</span><div><b>화살촉 — AI 솔루션</b><p>흐름이 닿는 곳, 실제로 일하는 결과입니다. 항상 오른쪽(앞)을 향합니다.</p></div></li>
         </ol>
       </div>
@@ -294,7 +295,7 @@
           <img src="brand/logo/symbol-inverse.svg" alt="">
           <p>개발에<br>실패는 없다.</p>
         </div>
-        <div class="profile"><img src="brand/logo/symbol-512.png" alt="SNS 프로필 예시"><div><b>노빠꾸컴퍼니</b><span>데이터 인프라 → AI 솔루션</span></div></div>
+        <div class="profile"><img src="brand/logo/symbol-512.png" alt="SNS 프로필 예시"><div><b>노빠꾸컴퍼니</b><span>데이터 → IT 솔루션</span></div></div>
         <div class="sizes">
           <figure><img src="brand/logo/symbol.svg" alt="" width="64" height="64"><figcaption>64</figcaption></figure>
           <figure><img src="brand/logo/symbol.svg" alt="" width="32" height="32"><figcaption>32</figcaption></figure>
@@ -311,5 +312,20 @@
     <img src="brand/logo/logo-horizontal-mono-light.svg" alt="노빠꾸컴퍼니">
     <span>브랜드 가이드 v1.2 · 자세한 내용은 BRAND.md</span>
   </footer>
+
+  <script>
+    // 모바일 메뉴
+    const nav = document.getElementById('nav');
+    const menuBtn = nav.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+      menuBtn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    });
+    nav.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', false);
+    }));
+  </script>
 </body>
 </html>
