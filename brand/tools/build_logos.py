@@ -26,11 +26,12 @@ FONT_URLS = {
 }
 
 # ── 컬러 (BRAND.md 4장) ─────────────────────────────────────────
-NIGHT = "#0B1A19"     # 기본 배경
-TEAL = "#0C635C"      # 메인 (Deep Teal)
-STONE = "#D3DAD6"     # 밝은 색 (흰색 대신)
-MINT = "#4FC9B0"      # 어두운 바탕 위 강조
-FOG = "#8DA39E"       # 어두운 바탕 위 보조 텍스트
+# 동인엔시스 로고와 같은 블루 · 레드를 쓴다
+BLUE = "#1857A5"      # Dongin Blue (메인)
+RED = "#E83E30"       # Dongin Red (포인트)
+INK = "#111B2E"       # 글자
+SUB = "#5A6577"       # 보조 글자
+WHITE = "#FFFFFF"
 
 # ── 심볼 설계값 (100 × 100 그리드) ─────────────────────────────
 LEAN = 10            # 앞으로 기울기(°)
@@ -58,6 +59,13 @@ def _poly(pts):
     return "M" + "L".join(f"{_num(x)} {_num(y)}" for x, y in pts) + "Z"
 
 
+def mark_parts():
+    """ㄴ 애로우를 [맨 위 데이터 블록, 나머지]로 나눠 돌려준다. 맨 위 블록은 레드 포인트 자리."""
+    p = mark_path()
+    cut = p.index("Z") + 1
+    return p[:cut], p[cut:]
+
+
 def mark_path():
     """ㄴ 애로우: 데이터 블록 → 꺾이는 파이프 → 화살촉. 10° 앞으로 기울어 있다."""
     a, b = ARM_Y - S / 2, ARM_Y + S / 2
@@ -75,11 +83,14 @@ def tile_path(r=TILE_R, w=100):
             f"H{r}A{r} {r} 0 0 1 0 {w - r}V{r}A{r} {r} 0 0 1 {r} 0Z")
 
 
-def symbol(tile, mark, knockout=False):
-    """knockout=True면 화살표를 뚫어서 한 가지 색으로만 그린다 (단색 인쇄용)."""
+def symbol(tile, mark, knockout=False, accent=RED):
+    """knockout=True면 화살표를 뚫어서 한 가지 색으로만 그린다 (단색 인쇄용).
+    accent: 맨 위 데이터 블록 색 (동인엔시스 로고의 레드 획과 같은 역할)."""
     if knockout:
         return f'<path fill="{tile}" fill-rule="evenodd" d="{tile_path()}{mark_path()}"/>'
-    return f'<path fill="{tile}" d="{tile_path()}"/><path fill="{mark}" d="{mark_path()}"/>'
+    first, rest = mark_parts()
+    return (f'<path fill="{tile}" d="{tile_path()}"/><path fill="{mark}" d="{rest}"/>'
+            f'<path fill="{accent}" d="{first}"/>')
 
 
 def svg(w, h, body, label="노빠꾸컴퍼니"):
@@ -142,41 +153,43 @@ def main():
         return svg(W_K, 100, symbol(tile, mark) + f'<path fill="{t1}" d="{k1_d}"/><path fill="{t2}" d="{k2_d}"/>')
 
     # 링크 공유 미리보기 (1200 × 630): 가로형 로고 + 슬로건 + 큰 ㄴ 애로우
-    logo = horiz(TEAL, STONE, STONE, MINT)
+    logo = horiz(BLUE, WHITE, BLUE, RED)
     logo_body = logo[logo.index("</title>") + 8:logo.rindex("</svg>")]
     h1_d, h1_w = kr.path("개발에", 116, x=80, y=356, tracking=-0.04)
     h2a_d, h2a_w = kr.path("실패는 ", 116, x=80, y=492, tracking=-0.04)
     h2b_d, _ = kr.path("없다.", 116, x=80 + h2a_w, y=492, tracking=-0.04)
     og_label_d, _ = mono.path("DATA INFRASTRUCTURE → AI SOLUTIONS", 15, x=82, y=566, tracking=0.12, by="cap")
     og = svg(1200, 630,
-             f'<rect width="1200" height="630" fill="{NIGHT}"/>'
+             f'<rect width="1200" height="630" fill="{WHITE}"/>'
              f'<g transform="translate(80 64) scale(.6)">{logo_body}</g>'
-             f'<path fill="{STONE}" d="{h1_d}{h2a_d}"/><path fill="{MINT}" d="{h2b_d}"/>'
-             f'<path fill="{FOG}" d="{og_label_d}"/>'
-             f'<g transform="translate(700 118) scale(5.1)"><path fill="{TEAL}" d="{mark_path()}"/></g>',
+             f'<path fill="{INK}" d="{h1_d}{h2a_d}"/><path fill="{BLUE}" d="{h2b_d}"/>'
+             f'<path fill="{SUB}" d="{og_label_d}"/>'
+             f'<g transform="translate(700 118) scale(5.1)"><path fill="{BLUE}" d="{mark_parts()[1]}"/>'
+             f'<path fill="{RED}" d="{mark_parts()[0]}"/></g>',
              "노빠꾸컴퍼니 — 개발에 실패는 없다.")
     with open(os.path.join(OUT, "..", "og-image.svg"), "w", encoding="utf-8") as f:
         f.write(og)
 
     files = {
         # 심볼
-        # 심볼: Teal 타일 + Stone 화살표는 어두운 바탕 · 밝은 바탕 모두에 쓴다
-        "symbol.svg": svg(100, 100, symbol(TEAL, STONE)),
-        "symbol-square.svg": svg(100, 100, f'<path fill="{TEAL}" d="M0 0H100V100H0Z"/><path fill="{STONE}" d="{mark_path()}"/>'),
-        "symbol-inverse.svg": svg(100, 100, symbol(STONE, TEAL)),
-        "symbol-mono-dark.svg": svg(100, 100, symbol(NIGHT, None, knockout=True)),
-        "symbol-mono-light.svg": svg(100, 100, symbol(STONE, None, knockout=True)),
+        # 심볼: 블루 타일 + 흰 화살표 + 레드 블록. 밝은 바탕 · 어두운 바탕 모두에 쓴다
+        "symbol.svg": svg(100, 100, symbol(BLUE, WHITE)),
+        "symbol-square.svg": svg(100, 100, f'<path fill="{BLUE}" d="M0 0H100V100H0Z"/>'
+                                 f'<path fill="{WHITE}" d="{mark_parts()[1]}"/><path fill="{RED}" d="{mark_parts()[0]}"/>'),
+        "symbol-inverse.svg": svg(100, 100, symbol(WHITE, BLUE)),
+        "symbol-mono-dark.svg": svg(100, 100, symbol(INK, None, knockout=True)),
+        "symbol-mono-light.svg": svg(100, 100, symbol(WHITE, None, knockout=True)),
         # 가로형
-        "logo-horizontal-on-dark.svg": horiz(TEAL, STONE, STONE, MINT),
-        "logo-horizontal-on-light.svg": horiz(TEAL, STONE, NIGHT, TEAL),
-        "logo-horizontal-mono-dark.svg": horiz(NIGHT, None, NIGHT, NIGHT, knockout=True),
-        "logo-horizontal-mono-light.svg": horiz(STONE, None, STONE, STONE, knockout=True),
+        "logo-horizontal-on-light.svg": horiz(BLUE, WHITE, BLUE, RED),
+        "logo-horizontal-on-dark.svg": horiz(BLUE, WHITE, WHITE, RED),
+        "logo-horizontal-mono-dark.svg": horiz(INK, None, INK, INK, knockout=True),
+        "logo-horizontal-mono-light.svg": horiz(WHITE, None, WHITE, WHITE, knockout=True),
         # 세로형
-        "logo-stacked-on-dark.svg": stacked(TEAL, STONE, STONE, MINT),
-        "logo-stacked-on-light.svg": stacked(TEAL, STONE, NIGHT, TEAL),
+        "logo-stacked-on-light.svg": stacked(BLUE, WHITE, BLUE, RED),
+        "logo-stacked-on-dark.svg": stacked(BLUE, WHITE, WHITE, RED),
         # 국문
-        "logo-kr-on-dark.svg": korean(TEAL, STONE, STONE, MINT),
-        "logo-kr-on-light.svg": korean(TEAL, STONE, NIGHT, TEAL),
+        "logo-kr-on-light.svg": korean(BLUE, WHITE, BLUE, BLUE),
+        "logo-kr-on-dark.svg": korean(BLUE, WHITE, WHITE, WHITE),
     }
     os.makedirs(OUT, exist_ok=True)
     for name, content in files.items():
