@@ -26,9 +26,8 @@ FONT_URLS = {
 }
 
 # ── 컬러 (BRAND.md 4장) ─────────────────────────────────────────
-# 동인엔시스 로고와 같은 블루 · 레드를 쓴다
-BLUE = "#1857A5"      # Dongin Blue (메인)
-RED = "#E83E30"       # Dongin Red (포인트)
+BLUE = "#1857A5"      # Nobbakku Blue (메인)
+RED = "#E83E30"       # Nobbakku Red (포인트)
 INK = "#111B2E"       # 글자
 SUB = "#5A6577"       # 보조 글자
 WHITE = "#FFFFFF"
@@ -85,7 +84,7 @@ def tile_path(r=TILE_R, w=100):
 
 def symbol(tile, mark, knockout=False, accent=RED):
     """knockout=True면 화살표를 뚫어서 한 가지 색으로만 그린다 (단색 인쇄용).
-    accent: 맨 위 데이터 블록 색 (동인엔시스 로고의 레드 획과 같은 역할)."""
+    accent: 맨 위 데이터 블록 색 (데이터가 들어오는 시작점)."""
     if knockout:
         return f'<path fill="{tile}" fill-rule="evenodd" d="{tile_path()}{mark_path()}"/>'
     first, rest = mark_parts()
