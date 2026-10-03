@@ -26,10 +26,11 @@ FONT_URLS = {
 }
 
 # ── 컬러 (BRAND.md 4장) ─────────────────────────────────────────
-CARBON = "#0E100F"
-ASH = "#CDD1C6"
-SMOKE = "#8B9187"
-LIME = "#C4F23A"
+NIGHT = "#0B1A19"     # 기본 배경
+TEAL = "#0C635C"      # 메인 (Deep Teal)
+STONE = "#D3DAD6"     # 밝은 색 (흰색 대신)
+MINT = "#4FC9B0"      # 어두운 바탕 위 강조
+FOG = "#8DA39E"       # 어두운 바탕 위 보조 텍스트
 
 # ── 심볼 설계값 (100 × 100 그리드) ─────────────────────────────
 LEAN = 10            # 앞으로 기울기(°)
@@ -141,40 +142,41 @@ def main():
         return svg(W_K, 100, symbol(tile, mark) + f'<path fill="{t1}" d="{k1_d}"/><path fill="{t2}" d="{k2_d}"/>')
 
     # 링크 공유 미리보기 (1200 × 630): 가로형 로고 + 슬로건 + 큰 ㄴ 애로우
-    logo = horiz(LIME, CARBON, ASH, LIME)
+    logo = horiz(TEAL, STONE, STONE, MINT)
     logo_body = logo[logo.index("</title>") + 8:logo.rindex("</svg>")]
     h1_d, h1_w = kr.path("개발에", 116, x=80, y=356, tracking=-0.04)
     h2a_d, h2a_w = kr.path("실패는 ", 116, x=80, y=492, tracking=-0.04)
     h2b_d, _ = kr.path("없다.", 116, x=80 + h2a_w, y=492, tracking=-0.04)
     og_label_d, _ = mono.path("DATA INFRASTRUCTURE → AI SOLUTIONS", 15, x=82, y=566, tracking=0.12, by="cap")
     og = svg(1200, 630,
-             f'<rect width="1200" height="630" fill="{CARBON}"/>'
+             f'<rect width="1200" height="630" fill="{NIGHT}"/>'
              f'<g transform="translate(80 64) scale(.6)">{logo_body}</g>'
-             f'<path fill="{ASH}" d="{h1_d}{h2a_d}"/><path fill="{LIME}" d="{h2b_d}"/>'
-             f'<path fill="{SMOKE}" d="{og_label_d}"/>'
-             f'<g transform="translate(700 118) scale(5.1)"><path fill="{LIME}" d="{mark_path()}"/></g>',
+             f'<path fill="{STONE}" d="{h1_d}{h2a_d}"/><path fill="{MINT}" d="{h2b_d}"/>'
+             f'<path fill="{FOG}" d="{og_label_d}"/>'
+             f'<g transform="translate(700 118) scale(5.1)"><path fill="{TEAL}" d="{mark_path()}"/></g>',
              "노빠꾸컴퍼니 — 개발에 실패는 없다.")
     with open(os.path.join(OUT, "..", "og-image.svg"), "w", encoding="utf-8") as f:
         f.write(og)
 
     files = {
         # 심볼
-        "symbol.svg": svg(100, 100, symbol(LIME, CARBON)),
-        "symbol-square.svg": svg(100, 100, f'<path fill="{LIME}" d="M0 0H100V100H0Z"/><path fill="{CARBON}" d="{mark_path()}"/>'),
-        "symbol-inverse.svg": svg(100, 100, symbol(CARBON, LIME)),
-        "symbol-mono-carbon.svg": svg(100, 100, symbol(CARBON, None, knockout=True)),
-        "symbol-mono-ash.svg": svg(100, 100, symbol(ASH, None, knockout=True)),
+        # 심볼: Teal 타일 + Stone 화살표는 어두운 바탕 · 밝은 바탕 모두에 쓴다
+        "symbol.svg": svg(100, 100, symbol(TEAL, STONE)),
+        "symbol-square.svg": svg(100, 100, f'<path fill="{TEAL}" d="M0 0H100V100H0Z"/><path fill="{STONE}" d="{mark_path()}"/>'),
+        "symbol-inverse.svg": svg(100, 100, symbol(STONE, TEAL)),
+        "symbol-mono-dark.svg": svg(100, 100, symbol(NIGHT, None, knockout=True)),
+        "symbol-mono-light.svg": svg(100, 100, symbol(STONE, None, knockout=True)),
         # 가로형
-        "logo-horizontal-on-dark.svg": horiz(LIME, CARBON, ASH, LIME),
-        "logo-horizontal-on-light.svg": horiz(CARBON, LIME, CARBON, CARBON),
-        "logo-horizontal-mono-carbon.svg": horiz(CARBON, None, CARBON, CARBON, knockout=True),
-        "logo-horizontal-mono-ash.svg": horiz(ASH, None, ASH, ASH, knockout=True),
+        "logo-horizontal-on-dark.svg": horiz(TEAL, STONE, STONE, MINT),
+        "logo-horizontal-on-light.svg": horiz(TEAL, STONE, NIGHT, TEAL),
+        "logo-horizontal-mono-dark.svg": horiz(NIGHT, None, NIGHT, NIGHT, knockout=True),
+        "logo-horizontal-mono-light.svg": horiz(STONE, None, STONE, STONE, knockout=True),
         # 세로형
-        "logo-stacked-on-dark.svg": stacked(LIME, CARBON, ASH, LIME),
-        "logo-stacked-on-light.svg": stacked(CARBON, LIME, CARBON, CARBON),
+        "logo-stacked-on-dark.svg": stacked(TEAL, STONE, STONE, MINT),
+        "logo-stacked-on-light.svg": stacked(TEAL, STONE, NIGHT, TEAL),
         # 국문
-        "logo-kr-on-dark.svg": korean(LIME, CARBON, ASH, LIME),
-        "logo-kr-on-light.svg": korean(CARBON, LIME, CARBON, CARBON),
+        "logo-kr-on-dark.svg": korean(TEAL, STONE, STONE, MINT),
+        "logo-kr-on-light.svg": korean(TEAL, STONE, NIGHT, TEAL),
     }
     os.makedirs(OUT, exist_ok=True)
     for name, content in files.items():
