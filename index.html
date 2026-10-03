@@ -3,21 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>노빠꾸컴퍼니 | 브랜드 인큐베이팅 · 소프트웨어 개발</title>
-  <meta name="description" content="노빠꾸컴퍼니는 브랜드 인큐베이팅과 소프트웨어 개발을 함께 하는 회사입니다. 개발에 실패는 없다. 노빠꾸 정신으로 끝까지 갑니다.">
+  <title>노빠꾸컴퍼니 | 데이터 인프라 · AI 솔루션 개발</title>
+  <meta name="description" content="노빠꾸컴퍼니는 데이터 인프라부터 AI 솔루션까지 개발하는 소프트웨어 회사입니다. 개발에 실패는 없다. 노빠꾸 정신으로 끝까지 갑니다.">
   <meta property="og:title" content="노빠꾸컴퍼니 — No Turning Back">
-  <meta property="og:description" content="브랜드 인큐베이팅 · 소프트웨어 개발. 개발에 실패는 없다.">
+  <meta property="og:description" content="데이터 인프라부터 AI 솔루션까지. 개발에 실패는 없다.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0b0b0c">
+  <meta property="og:image" content="https://bmk3037.github.io/New-Project/brand/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0e100f">
   <link rel="icon" href="brand/logo/symbol.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="brand/logo/symbol-512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Archivo+Black&family=Black+Han+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="nav">
-    <a href="#top" class="logo-img"><img src="brand/logo/logo-horizontal-on-dark.svg" alt="노빠꾸컴퍼니" height="36"></a>
+    <a href="#top" class="logo-img"><img src="brand/logo/logo-horizontal-on-dark.svg" alt="노빠꾸컴퍼니"></a>
     <nav>
       <a href="#about">회사</a>
       <a href="#services">서비스</a>
@@ -29,30 +33,55 @@
   <main id="top">
     <!-- 히어로 -->
     <section class="hero">
-      <p class="eyebrow">BRAND INCUBATING × SOFTWARE DEVELOPMENT</p>
-      <h1>개발에<br>실패는 <em>없다.</em></h1>
-      <p class="hero-sub">아이디어가 브랜드가 되고, 브랜드가 제품이 될 때까지.<br>노빠꾸컴퍼니는 뒤돌아보지 않고 끝까지 만듭니다.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">프로젝트 시작하기 →</a>
-        <a href="#services" class="btn btn-ghost">무엇을 하나요</a>
-      </div>
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>NO TURNING BACK</span><span>노빠꾸 정신</span>
-          <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>NO TURNING BACK</span><span>노빠꾸 정신</span>
+      <div>
+        <p class="eyebrow">DATA INFRASTRUCTURE → AI SOLUTIONS</p>
+        <h1>개발에<br>실패는 <em>없다.</em></h1>
+        <p class="hero-sub">데이터 파이프라인부터 AI 서비스까지.<br><b>노빠꾸컴퍼니는 뒤로 가지 않고 끝까지 만듭니다.</b></p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">프로젝트 시작하기 →</a>
+          <a href="#services" class="btn btn-ghost">무엇을 하나요</a>
         </div>
       </div>
+
+      <!-- 엘보 라인: 데이터는 아래로 내려왔다가 앞으로만 흐른다 -->
+      <svg class="hero-art" viewBox="0 0 500 372" role="img" aria-label="데이터 소스에서 파이프라인, 웨어하우스를 거쳐 AI로 흐르는 그림">
+        <g>
+          <path class="pipe-line" d="M32 56V150H216M112 56V150M192 56V150M276 168V250H300M368 268V342H392"/>
+          <path class="pipe-flow" d="M32 56V150H216M112 56V150M192 56V150M276 168V250H300M368 268V342H392"/>
+          <circle cx="112" cy="150" r="3.5" fill="#c4f23a"/>
+          <circle cx="192" cy="150" r="3.5" fill="#c4f23a"/>
+        </g>
+        <text class="pipe-label" x="0" y="11">01 INGEST</text>
+        <g class="pipe-node"><rect x="0" y="20" width="64" height="36" rx="8"/><text x="32" y="43" text-anchor="middle">DB</text></g>
+        <g class="pipe-node"><rect x="80" y="20" width="64" height="36" rx="8"/><text x="112" y="43" text-anchor="middle">API</text></g>
+        <g class="pipe-node"><rect x="160" y="20" width="64" height="36" rx="8"/><text x="192" y="43" text-anchor="middle">LOG</text></g>
+        <text class="pipe-label" x="216" y="123">02 TRANSFORM</text>
+        <g class="pipe-node"><rect x="216" y="132" width="120" height="36" rx="8"/><text x="276" y="155" text-anchor="middle">PIPELINE</text></g>
+        <text class="pipe-label" x="300" y="223">03 STORE</text>
+        <g class="pipe-node"><rect x="300" y="232" width="136" height="36" rx="8"/><text x="368" y="255" text-anchor="middle">WAREHOUSE</text></g>
+        <text class="pipe-label" x="392" y="313">04 SERVE</text>
+        <g class="pipe-node goal"><path d="M392 322H470L494 342L470 362H392Z" fill="#c4f23a"/><text x="436" y="347" text-anchor="middle">AI</text></g>
+      </svg>
     </section>
 
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → AI</span>
+        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → AI</span>
+        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → AI</span>
+        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → AI</span>
+      </div>
+    </div>
+
     <!-- 회사 소개 -->
-    <section id="about" class="section about">
+    <section id="about" class="section">
       <div class="section-head">
         <p class="eyebrow">ABOUT</p>
-        <h2>노빠꾸컴퍼니는<br>브랜드를 키우고, 소프트웨어로 완성합니다.</h2>
+        <h2>데이터의 바닥부터<br>AI의 끝까지 만듭니다.</h2>
       </div>
       <div class="about-grid">
-        <p>좋은 아이디어가 사라지는 이유는 대부분 중간에 멈추기 때문입니다. 우리는 브랜드 기획부터 디자인, 소프트웨어 개발, 런칭 이후의 성장까지 한 팀으로 함께 달립니다.</p>
-        <p>막히면 돌아가는 대신 뚫고 나갑니다. 실패는 끝이 아니라 다음 버전을 위한 데이터일 뿐입니다. 그래서 우리에게 개발의 실패는 없습니다.</p>
+        <p>AI는 데이터 위에서만 일합니다. 그런데 많은 AI 프로젝트가 데이터가 정리되지 않아 중간에 멈춥니다. 노빠꾸컴퍼니는 데이터를 모으는 파이프라인부터 쌓고 다듬는 플랫폼, 실제로 일하는 AI까지 한 팀이 끝까지 만듭니다.</p>
+        <p>막히면 돌아가는 대신 뚫고 나갑니다. 실패는 끝이 아니라 다음 버전을 위한 데이터일 뿐입니다. <b>그래서 우리에게 개발의 실패는 없습니다.</b></p>
       </div>
     </section>
 
@@ -60,27 +89,37 @@
     <section id="services" class="section">
       <div class="section-head">
         <p class="eyebrow">SERVICES</p>
-        <h2>두 개의 엔진, 하나의 방향.</h2>
+        <h2>세 개의 레이어,<br>하나의 방향.</h2>
       </div>
       <div class="cards">
         <article class="card">
-          <span class="card-no">01</span>
-          <h3>브랜드 인큐베이팅</h3>
-          <p>시장 분석과 포지셔닝, 네이밍, 브랜드 아이덴티티, 런칭 전략까지. 초기 브랜드가 시장에 자리 잡을 때까지 함께합니다.</p>
+          <div class="card-top"><span class="card-no">01 / DATA INFRA</span><span class="blocks l1" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <h3>데이터 인프라</h3>
+          <p>흩어진 데이터를 한곳으로 모으고, 끊기지 않게 흐르게 합니다. 모든 것의 바닥을 단단하게 다집니다.</p>
           <ul>
-            <li>브랜드 전략 · 포지셔닝</li>
-            <li>네이밍 · BI / 디자인 시스템</li>
-            <li>런칭 · 마케팅 실행</li>
+            <li>수집 · 적재 파이프라인</li>
+            <li>데이터 웨어하우스 · 레이크하우스</li>
+            <li>클라우드 아키텍처 · 운영</li>
           </ul>
         </article>
         <article class="card">
-          <span class="card-no">02</span>
-          <h3>소프트웨어 개발</h3>
-          <p>웹, 앱, 백엔드, 자동화까지 브랜드에 필요한 제품을 직접 설계하고 개발합니다. MVP부터 운영 단계까지 끝까지 책임집니다.</p>
+          <div class="card-top"><span class="card-no">02 / DATA PLATFORM</span><span class="blocks l2" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <h3>데이터 플랫폼</h3>
+          <p>쌓인 데이터를 믿고 쓸 수 있게 다듬습니다. 모두가 같은 숫자를 보고 결정하게 만듭니다.</p>
           <ul>
-            <li>웹 · 모바일 앱 개발</li>
-            <li>서버 · API · 클라우드</li>
-            <li>AI · 업무 자동화</li>
+            <li>ETL · ELT, 데이터 모델링</li>
+            <li>데이터 품질 · 거버넌스</li>
+            <li>대시보드 · 리포팅</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="card-no">03 / AI SOLUTIONS</span><span class="blocks l3" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <h3>AI 솔루션</h3>
+          <p>정리된 데이터 위에 실제로 일하는 AI를 올립니다. 데모로 끝내지 않고 운영까지 갑니다.</p>
+          <ul>
+            <li>LLM · RAG 서비스</li>
+            <li>AI 에이전트 · 업무 자동화</li>
+            <li>예측 모델 · MLOps</li>
           </ul>
         </article>
       </div>
@@ -93,11 +132,11 @@
         <h2>한 방향으로만 갑니다. 앞으로.</h2>
       </div>
       <ol class="steps">
-        <li><strong>발견</strong><span>아이디어와 시장, 고객을 깊게 파고듭니다.</span></li>
-        <li><strong>설계</strong><span>브랜드와 제품의 뼈대를 함께 세웁니다.</span></li>
-        <li><strong>개발</strong><span>빠르게 만들고, 부딪히고, 고칩니다.</span></li>
-        <li><strong>런칭</strong><span>시장에 내놓고 실제 반응을 확인합니다.</span></li>
-        <li><strong>성장</strong><span>데이터로 개선하며 계속 밀어붙입니다.</span></li>
+        <li><strong>진단</strong><span>데이터가 어디에, 어떤 상태로 있는지 파악합니다.</span></li>
+        <li><strong>설계</strong><span>데이터 흐름과 AI 구조를 한 장의 그림으로 그립니다.</span></li>
+        <li><strong>구축</strong><span>파이프라인과 모델을 만들고, 부딪히고, 고칩니다.</span></li>
+        <li><strong>배포</strong><span>실제 업무에 붙여 반응을 확인합니다.</span></li>
+        <li><strong>개선</strong><span>지표를 보며 다음 버전으로 계속 밀어붙입니다.</span></li>
       </ol>
     </section>
 
@@ -105,24 +144,24 @@
     <section class="section spirit">
       <p class="eyebrow">THE NOBBAKKU SPIRIT</p>
       <div class="spirit-grid">
-        <div><h3>끝까지 간다</h3><p>시작한 프로젝트는 완성될 때까지 멈추지 않습니다.</p></div>
-        <div><h3>실패는 데이터다</h3><p>넘어진 자리에서 배우고, 더 나은 버전으로 다시 갑니다.</p></div>
-        <div><h3>말보다 결과</h3><p>회의보다 프로토타입. 계획보다 실행.</p></div>
+        <div><h3>끝까지 간다</h3><p>시작한 프로젝트는 운영에 올라갈 때까지 멈추지 않습니다.</p></div>
+        <div><h3>실패는 데이터다</h3><p>넘어진 기록도 로그로 남겨 다음 버전의 재료로 씁니다.</p></div>
+        <div><h3>롤백 말고 롤포워드</h3><p>되돌리지 않습니다. 고쳐서 앞으로 배포합니다.</p></div>
       </div>
     </section>
 
     <!-- 문의 -->
     <section id="contact" class="section contact">
       <h2>망설이지 마세요.<br><em>노빠꾸</em>로 시작합시다.</h2>
-      <p>브랜드 아이디어든, 만들고 싶은 소프트웨어든 편하게 이야기해 주세요.</p>
+      <p>쌓아 둔 데이터든, 만들고 싶은 AI든 지금 상태 그대로 이야기해 주세요.</p>
       <!-- TODO: 실제 회사 이메일 주소로 바꿔 주세요 -->
       <a href="mailto:hello@example.com" class="btn btn-primary btn-lg">hello@example.com</a>
     </section>
   </main>
 
   <footer class="footer">
-    <img src="brand/logo/logo-horizontal-mono-white.svg" alt="노빠꾸컴퍼니" height="28">
-    <a href="brand.html">브랜드 가이드</a>
+    <img src="brand/logo/logo-horizontal-mono-ash.svg" alt="노빠꾸컴퍼니">
+    <a href="brand.html">브랜드 가이드 →</a>
     <span>© <span id="year">2026</span> 노빠꾸컴퍼니. No Turning Back.</span>
   </footer>
 
