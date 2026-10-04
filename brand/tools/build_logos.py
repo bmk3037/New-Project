@@ -28,7 +28,7 @@ FONT_URLS = {
 # ── 컬러 (BRAND.md 4장) ─────────────────────────────────────────
 BLUE = "#1857A5"      # Nobbakku Blue (메인)
 RED = "#E83E30"       # Nobbakku Red (포인트)
-INK = "#111B2E"       # 글자
+INK = "#222222"       # 글자
 SUB = "#5A6577"       # 보조 글자
 WHITE = "#FFFFFF"
 

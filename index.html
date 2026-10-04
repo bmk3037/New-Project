@@ -11,11 +11,9 @@
   <meta property="og:image" content="https://bmk3037.github.io/New-Project/brand/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
   <link rel="icon" href="brand/logo/symbol.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="brand/logo/symbol-512.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -53,34 +51,18 @@
         </ul>
       </div>
 
-      <!-- 엘보 라인: 데이터는 아래로 내려왔다가 앞으로만 흐른다 -->
-      <svg class="hero-art" viewBox="0 0 500 372" role="img" aria-label="서버의 데이터가 파이프라인과 데이터 플랫폼을 거쳐 IT · AI 솔루션으로 흐르는 그림">
-        <g>
-          <path class="pipe-line" d="M32 56V150H216M112 56V150M192 56V150M276 168V250H300M368 268V342H392"/>
-          <path class="pipe-flow" d="M32 56V150H216M112 56V150M192 56V150M276 168V250H300M368 268V342H392"/>
-          <circle cx="112" cy="150" r="3.5" fill="#e83e30"/>
-          <circle cx="192" cy="150" r="3.5" fill="#e83e30"/>
-        </g>
-        <text class="pipe-label" x="0" y="11">01 SERVER</text>
-        <g class="pipe-node"><rect x="0" y="20" width="64" height="36" rx="8"/><text x="32" y="43" text-anchor="middle">MQTT</text></g>
-        <g class="pipe-node"><rect x="80" y="20" width="64" height="36" rx="8"/><text x="112" y="43" text-anchor="middle">API</text></g>
-        <g class="pipe-node"><rect x="160" y="20" width="64" height="36" rx="8"/><text x="192" y="43" text-anchor="middle">DB</text></g>
-        <text class="pipe-label" x="216" y="123">02 PIPELINE</text>
-        <g class="pipe-node"><rect x="216" y="132" width="120" height="36" rx="8"/><text x="276" y="155" text-anchor="middle">INGEST</text></g>
-        <text class="pipe-label" x="300" y="223">03 STORE · MODEL</text>
-        <g class="pipe-node"><rect x="300" y="232" width="136" height="36" rx="8"/><text x="368" y="255" text-anchor="middle">PLATFORM</text></g>
-        <text class="pipe-label" x="392" y="313">04 SERVE</text>
-        <g class="pipe-node goal"><path d="M392 322H470L494 342L470 362H392Z" fill="#1857a5"/><text x="436" y="347" text-anchor="middle">IT · AI</text></g>
-      </svg>
+      <div class="hero-photo">
+        <figure class="photo r54" data-file="hero.jpg"><img src="img/hero.jpg" alt="펌프실에서 태블릿으로 설비 대시보드를 보는 엔지니어" fetchpriority="high" onerror="this.remove()"><span class="float-badge">설비 모니터링 대시보드</span></figure>
+        <div class="hero-flow" aria-hidden="true">
+          <p>노빠꾸컴퍼니가 맡는 구간</p>
+          <div><span>서버</span><i>→</i><span>데이터 플랫폼</span><i>→</i><span class="on">IT · AI</span></div>
+        </div>
+      </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → IT SOLUTIONS</span>
-        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → IT SOLUTIONS</span>
-        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → IT SOLUTIONS</span>
-        <span>NO TURNING BACK</span><span>노빠꾸 정신</span><span>DATA → IT SOLUTIONS</span>
-      </div>
+    <div class="strip">
+      <span class="strip-label">적용 현장</span>
+      <a href="#solutions">조선 · 해양</a><a href="#solutions">수소 · 에너지</a><a href="#solutions">제조 · 스마트팩토리</a><a href="#solutions">데이터센터</a><a href="#solutions">상하수도 · 유틸리티</a>
     </div>
 
     <!-- 역할: 서버까지는 현장 장비가, 서버 뒤는 노빠꾸컴퍼니가 -->
@@ -112,6 +94,7 @@
 
       <div class="roles">
         <div class="role">
+          <figure class="photo r169" data-file="role-field.jpg"><img src="img/role-field.jpg" alt="PLC와 배선이 정리된 제어반 내부" loading="lazy" onerror="this.remove()"></figure>
           <p class="role-name">FIELD <small>현장 장비 · 제어 시스템 (고객사 · 설비 업체)</small></p>
           <ul>
             <li>설비 · 센서 · 제어반 설치</li>
@@ -121,6 +104,7 @@
           </ul>
         </div>
         <div class="role me">
+          <figure class="photo r169" data-file="role-server.jpg"><img src="img/role-server.jpg" alt="서버 랙이 늘어선 서버룸 통로" loading="lazy" onerror="this.remove()"></figure>
           <p class="role-name">NOBBAKKU COMPANY <small>서버 뒤 데이터 · IT</small></p>
           <ul>
             <li>데이터 적재 · 정제 · 시계열 저장소 구축 · 운영</li>
@@ -203,16 +187,42 @@
         <p class="lead">업종보다 문제가 먼저입니다. 설비 데이터로 가장 많이 푸는 여섯 가지입니다.</p>
       </div>
       <div class="usecases">
-        <article><span class="uc-tag">모니터링</span><h3>설비 상태를 한 화면에</h3><p>여러 현장의 설비 운전 상태와 이력을 실시간 대시보드로 보고, 기준을 벗어나면 바로 알람을 받습니다.</p><p class="uc-tech">시계열 DB · 웹 대시보드 · 알람</p></article>
-        <article><span class="uc-tag">예지보전</span><h3>고장 나기 전에 정비</h3><p>모터 · 펌프의 온도 · 전류 · 진동 이력을 학습해, 평소와 다른 신호를 먼저 잡아 계획 정비로 바꿉니다.</p><p class="uc-tech">이상 탐지 · 예측 모델 · MLOps</p></article>
-        <article><span class="uc-tag">시스템 연동</span><h3>설비 데이터를 MES · ERP로</h3><p>가동 시간, 정지 사유, 전력량을 생산 · 보전 시스템에 자동으로 넣어 수기 입력을 없앱니다.</p><p class="uc-tech">REST API · 데이터 매핑 · 배치</p></article>
-        <article><span class="uc-tag">에너지</span><h3>새는 전력을 숫자로</h3><p>설비별 전력량을 운전 조건과 함께 분석해, 낭비 구간을 찾고 최적 운전 조건을 제안합니다.</p><p class="uc-tech">전력 분석 · 최적화 · 리포트</p></article>
-        <article><span class="uc-tag">디지털트윈</span><h3>멀리 있는 설비를 화면 위에</h3><p>선박 · 플랜트 · 데이터센터 설비를 구조도 위에 띄워, 현장에 가지 않고 상태를 확인합니다.</p><p class="uc-tech">원격 관제 · 2D/3D 뷰어 · 권한 관리</p></article>
-        <article><span class="uc-tag">AI 비서</span><h3>근거를 대며 답하는 보전 AI</h3><p>운전 이력과 매뉴얼을 연결해, "이 펌프 지난달에 왜 멈췄지?"에 출처와 함께 답하고 보고서를 씁니다.</p><p class="uc-tech">LLM · RAG · 출처 표시</p></article>
-      </div>
-      <div class="fields">
-        <span class="fields-label">적용 현장</span>
-        <span>조선 · 해양</span><span>수소 · 에너지</span><span>제조 · 스마트팩토리</span><span>데이터센터</span><span>상하수도 · 유틸리티</span>
+        <article class="uc">
+          <figure class="photo r43" data-file="uc-monitoring.jpg"><img src="img/uc-monitoring.jpg" alt="대형 화면에 설비 상태가 표시된 관제실" loading="lazy" onerror="this.remove()"><span class="float-badge">모니터링</span></figure>
+          <h3>설비 상태를 한 화면에</h3>
+          <p>여러 현장의 설비 운전 상태와 이력을 실시간 대시보드로 보고, 기준을 벗어나면 바로 알람을 받습니다.</p>
+          <p class="uc-tech">시계열 DB · 웹 대시보드 · 알람</p>
+        </article>
+        <article class="uc">
+          <figure class="photo r43" data-file="uc-predictive.jpg"><img src="img/uc-predictive.jpg" alt="진동 센서가 붙은 산업용 모터" loading="lazy" onerror="this.remove()"><span class="float-badge">예지보전</span></figure>
+          <h3>고장 나기 전에 정비</h3>
+          <p>모터 · 펌프의 온도 · 전류 · 진동 이력을 학습해, 평소와 다른 신호를 먼저 잡아 계획 정비로 바꿉니다.</p>
+          <p class="uc-tech">이상 탐지 · 예측 모델 · MLOps</p>
+        </article>
+        <article class="uc">
+          <figure class="photo r43" data-file="uc-integration.jpg"><img src="img/uc-integration.jpg" alt="생산 라인 앞에서 태블릿으로 생산 현황을 보는 손" loading="lazy" onerror="this.remove()"><span class="float-badge">시스템 연동</span></figure>
+          <h3>설비 데이터를 MES · ERP로</h3>
+          <p>가동 시간, 정지 사유, 전력량을 생산 · 보전 시스템에 자동으로 넣어 수기 입력을 없앱니다.</p>
+          <p class="uc-tech">REST API · 데이터 매핑 · 배치</p>
+        </article>
+        <article class="uc">
+          <figure class="photo r43" data-file="uc-energy.jpg"><img src="img/uc-energy.jpg" alt="전력 계량기가 달린 배전반" loading="lazy" onerror="this.remove()"><span class="float-badge">에너지</span></figure>
+          <h3>새는 전력을 숫자로</h3>
+          <p>설비별 전력량을 운전 조건과 함께 분석해, 낭비 구간을 찾고 최적 운전 조건을 제안합니다.</p>
+          <p class="uc-tech">전력 분석 · 최적화 · 리포트</p>
+        </article>
+        <article class="uc">
+          <figure class="photo r43" data-file="uc-digitaltwin.jpg"><img src="img/uc-digitaltwin.jpg" alt="선박 기관실의 배관과 펌프" loading="lazy" onerror="this.remove()"><span class="float-badge">디지털트윈</span></figure>
+          <h3>멀리 있는 설비를 화면 위에</h3>
+          <p>선박 · 플랜트 · 데이터센터 설비를 구조도 위에 띄워, 현장에 가지 않고 상태를 확인합니다.</p>
+          <p class="uc-tech">원격 관제 · 2D/3D 뷰어 · 권한 관리</p>
+        </article>
+        <article class="uc">
+          <figure class="photo r43" data-file="uc-assistant.jpg"><img src="img/uc-assistant.jpg" alt="설비 옆에서 태블릿과 매뉴얼을 확인하는 정비 엔지니어" loading="lazy" onerror="this.remove()"><span class="float-badge">AI 비서</span></figure>
+          <h3>근거를 대며 답하는 보전 AI</h3>
+          <p>운전 이력과 매뉴얼을 연결해, "이 펌프 지난달에 왜 멈췄지?"에 출처와 함께 답하고 보고서를 씁니다.</p>
+          <p class="uc-tech">LLM · RAG · 출처 표시</p>
+        </article>
       </div>
       <p class="note">※ 적용 시나리오 예시입니다. 실제 범위는 데이터 진단 후 정합니다.</p>
     </section>
@@ -298,8 +308,11 @@
         <h2>데이터에서 시작해,<br>쓰이는 솔루션으로 끝냅니다.</h2>
       </div>
       <div class="about-grid">
+        <div>
         <p>현장에서 데이터를 모으는 일은 점점 쉬워지고 있습니다. 어려운 건 그 데이터를 매일 쓰는 화면과 시스템, 그리고 믿을 수 있는 AI로 만드는 일입니다. 노빠꾸컴퍼니는 그 서버 뒤의 일을 맡습니다.</p>
         <p>막히면 돌아가는 대신 뚫고 나갑니다. 실패는 끝이 아니라 다음 버전을 위한 데이터일 뿐입니다. <b>그래서 우리에게 개발의 실패는 없습니다.</b></p>
+        </div>
+        <figure class="photo r169" data-file="about.jpg"><img src="img/about.jpg" alt="화이트보드에 데이터 흐름도를 그리는 엔지니어의 손" loading="lazy" onerror="this.remove()"></figure>
       </div>
       <div class="kv about-kv">
         <div><span>미션</span>흩어진 현장 데이터를, 현장이 실제로 쓰는 IT 솔루션과 AI로 만든다.</div>
@@ -349,6 +362,7 @@
         <h2>망설이지 마세요.<br><em>노빠꾸</em>로 시작합시다.</h2>
         <p>쌓아 둔 데이터든, 만들고 싶은 화면과 AI든 지금 상태 그대로 이야기해 주세요.</p>
       </div>
+      <figure class="photo r219 contact-banner" data-file="cta.jpg"><img src="img/cta.jpg" alt="해 질 녘의 산업 현장 풍경" loading="lazy" onerror="this.remove()"></figure>
       <div class="contact-grid">
         <div class="contact-info">
           <p class="ci-label">이메일</p>
@@ -376,7 +390,7 @@
             </select>
           </label>
           <label>내용<textarea name="message" rows="5" required placeholder="예) 펌프 20대의 운전 데이터가 서버에 쌓이고 있는데, 이상 징후 알람부터 만들고 싶습니다."></textarea></label>
-          <button type="submit" class="btn btn-primary">메일로 보내기 →</button>
+          <button type="submit" class="btn btn-primary btn-lg">메일로 보내기 →</button>
           <p class="form-hint">버튼을 누르면 메일 앱이 열리고, 적은 내용이 채워집니다.</p>
         </form>
       </div>
@@ -386,7 +400,7 @@
   <footer class="footer">
     <div class="footer-grid">
       <div class="f-brand">
-        <img src="brand/logo/logo-horizontal-mono-light.svg" alt="노빠꾸컴퍼니">
+        <img src="brand/logo/logo-horizontal-on-light.svg" alt="노빠꾸컴퍼니">
         <p>개발에 실패는 없다. No Turning Back.<br>서버 뒤의 데이터부터 IT 솔루션까지.</p>
       </div>
       <div>
@@ -417,6 +431,18 @@
       nav.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', false);
     }));
+
+    // 지금 보고 있는 섹션을 메뉴에 표시
+    const links = [...nav.querySelectorAll('nav a[href^="#"]:not(.nav-cta)')];
+    const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        links.forEach(a => a.removeAttribute('aria-current'));
+        byId.get(en.target.id)?.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    byId.forEach((_, id) => { const el = document.getElementById(id); if (el) spy.observe(el); });
 
     // 문의 폼: 서버 없이 메일 앱으로 내용을 넘긴다
     document.getElementById('contact-form').addEventListener('submit', e => {
