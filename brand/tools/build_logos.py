@@ -26,8 +26,7 @@ FONT_URLS = {
 }
 
 # ── 컬러 (BRAND.md 4장) ─────────────────────────────────────────
-BLUE = "#1857A5"      # Nobbakku Blue (메인)
-RED = "#E83E30"       # Nobbakku Red (포인트)
+RED = "#D4362A"       # Nobbakku Red (메인)
 INK = "#222222"       # 글자
 SUB = "#5A6577"       # 보조 글자
 WHITE = "#FFFFFF"
@@ -82,11 +81,13 @@ def tile_path(r=TILE_R, w=100):
             f"H{r}A{r} {r} 0 0 1 0 {w - r}V{r}A{r} {r} 0 0 1 {r} 0Z")
 
 
-def symbol(tile, mark, knockout=False, accent=RED):
+def symbol(tile, mark, knockout=False, accent=None):
     """knockout=True면 화살표를 뚫어서 한 가지 색으로만 그린다 (단색 인쇄용).
-    accent: 맨 위 데이터 블록 색 (데이터가 들어오는 시작점)."""
+    accent: 맨 위 데이터 블록만 다른 색으로 칠할 때 (기본은 화살표와 같은 색)."""
     if knockout:
         return f'<path fill="{tile}" fill-rule="evenodd" d="{tile_path()}{mark_path()}"/>'
+    if accent is None:
+        return f'<path fill="{tile}" d="{tile_path()}"/><path fill="{mark}" d="{mark_path()}"/>'
     first, rest = mark_parts()
     return (f'<path fill="{tile}" d="{tile_path()}"/><path fill="{mark}" d="{rest}"/>'
             f'<path fill="{accent}" d="{first}"/>')
@@ -152,7 +153,7 @@ def main():
         return svg(W_K, 100, symbol(tile, mark) + f'<path fill="{t1}" d="{k1_d}"/><path fill="{t2}" d="{k2_d}"/>')
 
     # 링크 공유 미리보기 (1200 × 630): 가로형 로고 + 슬로건 + 큰 ㄴ 애로우
-    logo = horiz(BLUE, WHITE, BLUE, RED)
+    logo = horiz(RED, WHITE, INK, RED)
     logo_body = logo[logo.index("</title>") + 8:logo.rindex("</svg>")]
     h1_d, h1_w = kr.path("개발에", 116, x=80, y=356, tracking=-0.04)
     h2a_d, h2a_w = kr.path("실패는 ", 116, x=80, y=492, tracking=-0.04)
@@ -161,34 +162,32 @@ def main():
     og = svg(1200, 630,
              f'<rect width="1200" height="630" fill="{WHITE}"/>'
              f'<g transform="translate(80 64) scale(.6)">{logo_body}</g>'
-             f'<path fill="{INK}" d="{h1_d}{h2a_d}"/><path fill="{BLUE}" d="{h2b_d}"/>'
+             f'<path fill="{INK}" d="{h1_d}{h2a_d}"/><path fill="{RED}" d="{h2b_d}"/>'
              f'<path fill="{SUB}" d="{og_label_d}"/>'
-             f'<g transform="translate(700 118) scale(5.1)"><path fill="{BLUE}" d="{mark_parts()[1]}"/>'
-             f'<path fill="{RED}" d="{mark_parts()[0]}"/></g>',
+             f'<g transform="translate(700 118) scale(5.1)"><path fill="{RED}" d="{mark_path()}"/></g>',
              "노빠꾸컴퍼니 — 개발에 실패는 없다.")
     with open(os.path.join(OUT, "..", "og-image.svg"), "w", encoding="utf-8") as f:
         f.write(og)
 
     files = {
         # 심볼
-        # 심볼: 블루 타일 + 흰 화살표 + 레드 블록. 밝은 바탕 · 어두운 바탕 모두에 쓴다
-        "symbol.svg": svg(100, 100, symbol(BLUE, WHITE)),
-        "symbol-square.svg": svg(100, 100, f'<path fill="{BLUE}" d="M0 0H100V100H0Z"/>'
-                                 f'<path fill="{WHITE}" d="{mark_parts()[1]}"/><path fill="{RED}" d="{mark_parts()[0]}"/>'),
-        "symbol-inverse.svg": svg(100, 100, symbol(WHITE, BLUE)),
+        # 심볼: 레드 타일 + 흰 화살표. 밝은 바탕 · 어두운 바탕 모두에 쓴다
+        "symbol.svg": svg(100, 100, symbol(RED, WHITE)),
+        "symbol-square.svg": svg(100, 100, f'<path fill="{RED}" d="M0 0H100V100H0Z"/><path fill="{WHITE}" d="{mark_path()}"/>'),
+        "symbol-inverse.svg": svg(100, 100, symbol(WHITE, RED)),
         "symbol-mono-dark.svg": svg(100, 100, symbol(INK, None, knockout=True)),
         "symbol-mono-light.svg": svg(100, 100, symbol(WHITE, None, knockout=True)),
         # 가로형
-        "logo-horizontal-on-light.svg": horiz(BLUE, WHITE, BLUE, RED),
-        "logo-horizontal-on-dark.svg": horiz(BLUE, WHITE, WHITE, RED),
+        "logo-horizontal-on-light.svg": horiz(RED, WHITE, INK, RED),
+        "logo-horizontal-on-dark.svg": horiz(RED, WHITE, WHITE, RED),
         "logo-horizontal-mono-dark.svg": horiz(INK, None, INK, INK, knockout=True),
         "logo-horizontal-mono-light.svg": horiz(WHITE, None, WHITE, WHITE, knockout=True),
         # 세로형
-        "logo-stacked-on-light.svg": stacked(BLUE, WHITE, BLUE, RED),
-        "logo-stacked-on-dark.svg": stacked(BLUE, WHITE, WHITE, RED),
+        "logo-stacked-on-light.svg": stacked(RED, WHITE, INK, RED),
+        "logo-stacked-on-dark.svg": stacked(RED, WHITE, WHITE, RED),
         # 국문
-        "logo-kr-on-light.svg": korean(BLUE, WHITE, BLUE, BLUE),
-        "logo-kr-on-dark.svg": korean(BLUE, WHITE, WHITE, WHITE),
+        "logo-kr-on-light.svg": korean(RED, WHITE, INK, RED),
+        "logo-kr-on-dark.svg": korean(RED, WHITE, WHITE, RED),
     }
     os.makedirs(OUT, exist_ok=True)
     for name, content in files.items():
