@@ -19,3 +19,14 @@
 ## 배포 (GitHub Pages)
 저장소 **Settings → Pages → Source: Deploy from a branch → `main` / `(root)`** 로 저장하면
 `https://bmk3037.github.io/New-Project/` 에서 볼 수 있습니다.
+
+## CI (GitHub Actions)
+`main` 푸시와 모든 PR에서 `.github/workflows/ci.yml`이 자동으로 돌아갑니다.
+- **Lint** — HTML 문법(`html-validate`), CSS 오류(`stylelint`)
+- **Broken links** — 페이지 안의 로컬 파일·이미지 경로가 실제로 있는지(`lychee`)
+
+로컬에서 똑같이 돌려보기:
+```bash
+npm install
+npm run lint
+```

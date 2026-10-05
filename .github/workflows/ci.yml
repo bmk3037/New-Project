@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint (HTML · CSS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:html
+      - run: npm run lint:css
+
+  links:
+    name: Broken links (local files)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          # --offline: 외부 URL은 건너뛰고, 페이지 안의 로컬 파일·이미지 경로만 검사
+          args: --offline --no-progress "*.html"
+          fail: true

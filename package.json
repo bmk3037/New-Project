@@ -1,0 +1,14 @@
+{
+  "name": "new-project",
+  "private": true,
+  "scripts": {
+    "lint": "npm run lint:html && npm run lint:css",
+    "lint:html": "html-validate \"*.html\"",
+    "lint:css": "stylelint \"css/**/*.css\""
+  },
+  "devDependencies": {
+    "html-validate": "^11.16.2",
+    "stylelint": "^17.16.0",
+    "stylelint-config-recommended": "^18.0.0"
+  }
+}
