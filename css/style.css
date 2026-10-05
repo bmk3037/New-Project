@@ -30,7 +30,7 @@
   /* 서체: 웹은 Pretendard 하나로 */
   --font-kr: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-display: "Archivo", var(--font-kr);
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Pretendard Variable", Pretendard, monospace; /* 한글은 Pretendard로 */
 
   /* 브랜드 가이드 페이지용 별칭 */
   --white: var(--canvas);
