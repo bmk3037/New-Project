@@ -5,8 +5,8 @@
 
 ## 구조
 - `index.html` — 홈페이지 (히어로, 역할, 문제, 서비스, 솔루션, 진행 방식, 시작 방법, 기술, 노빠꾸 정신, 회사, FAQ, 문의 폼)
-- `brand.html` — 브랜드 가이드 페이지 (톤앤매너, 로고, 컬러, 타이포, 그래픽 요소, 적용 예시)
-- `BRAND.md` — 브랜드 가이드 문서 v1.0 (톤앤매너 원칙, Do/Don't, 로고 · 컬러 · 서체 규칙)
+- `brand.html` — CI 가이드 페이지 (기업 이념, 톤앤매너, 로고, 컬러, 타이포, 그래픽 요소, 응용 디자인)
+- `BRAND.md` — CI 가이드 문서 v1.4 (기업 이념, 톤앤매너, Do/Don't, 로고 · 컬러 · 서체 · 응용 디자인 규칙)
 - `brand/logo/` — 로고 SVG 원본 (심볼, 가로형, 세로형, 국문, 단색) + 프로필용 PNG
 - `brand/og-image.png` — 링크 공유 미리보기 이미지
 - `brand/fonts/README.md` — 브랜드 글꼴 안내 (Archivo, Pretendard, JetBrains Mono · SIL OFL)
