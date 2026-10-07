@@ -1,21 +1,22 @@
-# 노빠꾸컴퍼니 랜딩페이지
+# 노빠꾸컴퍼니 홈페이지
 
-브랜드 인큐베이팅 · 소프트웨어 개발 회사 **노빠꾸컴퍼니** 웹사이트입니다.
-> 개발에 실패는 없다. 노빠꾸 정신.
+현장 서버 뒤의 데이터 플랫폼 · IT 솔루션 · AI 개발 회사 홈페이지입니다.
 
-## 구조
-- `index.html` — 랜딩페이지 (히어로, 회사, 서비스, 프로세스, 노빠꾸 정신, 문의)
-- `brand.html` — 브랜드 가이드 페이지 (톤앤매너, 로고, 컬러, 타이포)
-- `BRAND.md` — 브랜드 가이드 문서 (톤앤매너 원칙, Do/Don't, 로고 사용 규칙)
-- `brand/logo/` — 로고 SVG 원본 (심볼, 가로형, 국문 워드마크, 단색)
-- `brand/fonts/` — 브랜드 글꼴 (Archivo Black, Black Han Sans · SIL OFL)
-- `css/style.css` — 스타일
+## 개발
 
-새 카피나 디자인을 만들 때는 먼저 `BRAND.md`를 보고 톤앤매너를 맞춰 주세요.
+별도 빌드나 패키지 설치가 필요 없는 정적 HTML/CSS 사이트입니다.
 
-## 수정할 것
-- 문의 이메일: `index.html`의 `hello@example.com`을 실제 주소로 바꿔 주세요.
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1 --directory /workspace/New-Project
+```
 
-## 배포 (GitHub Pages)
-저장소 **Settings → Pages → Source: Deploy from a branch → `main` / `(root)`** 로 저장하면
-`https://bmk3037.github.io/New-Project/` 에서 볼 수 있습니다.
+- `index.html`: 첨부 홈페이지를 기준으로 구성한 홈페이지
+- `brand.html`: 첨부 CI 가이드 v1.4
+- `css/style.css`: 홈페이지 스타일, 흰 바탕과 Nobbakku Red `#D4362A`
+- `css/fonts.css`, `brand/fonts/`: 로컬 Pretendard, Archivo, JetBrains Mono
+- `brand/logo/`: CI 가이드에서 추출한 로고
+- `img/`: 홈페이지용 AI 생성 이미지. 실제 고객 현장이나 납품 실적이 아닙니다.
+
+문의 이메일은 `bmk3037@naver.com`입니다. 문의 폼은 입력한 내용을 `mailto:` 링크로 전달해 사용자의 메일 앱을 엽니다. 서버 전송이나 접수 저장 기능은 없습니다.
+
+GitHub Pages는 `main` 브랜치의 루트를 게시하도록 설정합니다. 현재 작업 공간의 변경 사항은 커밋·푸시·배포 전에는 공개 사이트에 반영되지 않습니다.
