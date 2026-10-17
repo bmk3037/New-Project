@@ -1,7 +1,7 @@
 """벤치마크 채널의 숏츠를 모아 조회수 순으로 정리한다.
 
 YOUTUBE_API_KEY가 있으면 YouTube Data API로 채널 업로드 전체의 길이·조회수·좋아요·설명란을 받는다.
-키가 없거나 하루 한도를 넘으면 공개 페이지를 yt-dlp로 읽는 방식으로 자동 전환한다.
+키가 없거나, 틀렸거나, 하루 한도를 넘으면 공개 페이지를 yt-dlp로 읽는 방식으로 자동 전환한다.
 yt-dlp 방식은 유튜브가 봇 확인을 걸면 길이·좋아요가 비는데, 브라우저 쿠키를 넘기면 다 받는다.
 어느 쪽이든 길이가 180초를 넘는 영상은 숏츠가 아니므로 뺀다. 결과는 data/<handle>.jsonl.
 
@@ -23,8 +23,8 @@ API = "https://www.googleapis.com/youtube/v3"
 SHORTS_MAX = 180  # 유튜브 숏츠 최대 길이(초)
 
 
-class QuotaExceeded(Exception):
-    pass
+class ApiUnavailable(Exception):
+    """키가 틀렸거나, 막혔거나, 하루 한도를 넘었거나, 접속이 안 될 때. yt-dlp로 넘어간다."""
 
 
 # --- YouTube Data API -------------------------------------------------------
@@ -37,12 +37,18 @@ def api_get(endpoint, key, **params):
     except urllib.error.HTTPError as e:
         body = e.read().decode(errors="replace")
         try:
-            reasons = {err.get("reason") for err in json.loads(body)["error"]["errors"]}
-        except (ValueError, KeyError, TypeError):
+            err = json.loads(body)["error"]
+            reasons = {x.get("reason") for x in err.get("errors", []) + err.get("details", [])}
+        except (ValueError, KeyError, TypeError, AttributeError):
             reasons = set()
         if reasons & {"quotaExceeded", "dailyLimitExceeded", "rateLimitExceeded"}:
-            raise QuotaExceeded(", ".join(sorted(reasons))) from None
+            raise ApiUnavailable(f"한도 초과({', '.join(sorted(filter(None, reasons)))})") from None
+        if reasons & {"API_KEY_INVALID", "keyInvalid", "accessNotConfigured", "SERVICE_DISABLED",
+                      "API_KEY_SERVICE_BLOCKED", "API_KEY_HTTP_REFERRER_BLOCKED", "API_KEY_IP_ADDRESS_BLOCKED"}:
+            raise ApiUnavailable(f"키를 쓸 수 없음({', '.join(sorted(filter(None, reasons)))})") from None
         raise RuntimeError(f"YouTube API {e.code} {endpoint}: {body[:300]}") from None
+    except urllib.error.URLError as e:
+        raise ApiUnavailable(f"접속 실패({e.reason})") from None
 
 
 def iso_seconds(s):
@@ -191,8 +197,8 @@ def main():
         try:
             metas = api_collect(handle, key)
             source = "api"
-        except QuotaExceeded as e:
-            print(f"\nYouTube API 한도 초과({e}), yt-dlp 방식으로 전환합니다")
+        except ApiUnavailable as e:
+            print(f"\nYouTube API {e}, yt-dlp 방식으로 전환합니다")
 
     if metas is not None:
         # API는 모든 숏츠의 상세를 받으므로 목록도 상세에서 만든다

@@ -19,10 +19,21 @@ TITLE_FEATURES = {
     "숫자 포함": r"\d",
 }
 LONG_TITLE = 35
+LENGTH_BINS = ((0, 60), (61, 90), (91, 120), (121, 150), (151, 180))
+# 전기 소재: '전기도 없던', '에어컨 없이'처럼 전기를 빼는 소재는 넣지 않는다
+ELECTRIC = r"발전소|발전기|원자력|송전|변전|전력|(?<!근)정전|충전|전기의|전기가 나오|에어컨을 켜"
 
 
 def median(xs):
     return f"{st.median(xs):,.0f}" if xs else "-"
+
+
+def like_rate(ms):
+    return f"{st.median(m['like_count'] / m['view_count'] for m in ms):.2%}" if ms else "-"
+
+
+def man(n):
+    return f"{n / 10000:,.0f}만" if n >= 10000 else f"{n:,}"
 
 
 def main(name):
@@ -53,12 +64,45 @@ def main(name):
             print(f"- {label} ({len(group)}편): 길이·반응 데이터 없음 (collect.py --cookies로 다시 받기)")
             continue
         print(f"- {label} ({len(group)}편): 길이 중앙값 {median([m['duration'] for m in full])}초, "
-              f"좋아요율 {st.median(m['like_count'] / m['view_count'] for m in full):.2%}, "
+              f"좋아요율 {like_rate(full)}, "
               f"업로드 {min(m['upload_date'] for m in full)}~{max(m['upload_date'] for m in full)}")
+
+    # 아래 표는 길이·좋아요가 다 있는 영상만 쓴다. API로 받으면 전부, yt-dlp로 받으면 일부다
+    full = [m for m in meta if m["duration"] and m["like_count"] is not None and m["upload_date"]]
+    if not full:
+        return
+    top = [m for m in full if m["view_count"] >= cut_hi]
+    lo, hi = min(m["upload_date"] for m in top), max(m["upload_date"] for m in top)
+    # 길이는 업로드 시기와 얽혀 있다(초기엔 짧고 최근엔 길다). 상위 10%가 나온 기간 안에서도 따로 본다
+    peak = [m for m in full if lo <= m["upload_date"] <= hi]
+    print(f"\n### 길이 구간\n\n'기간 내'는 상위 10%가 나온 {lo}~{hi}에 올라온 {len(peak)}편입니다.\n")
+    print("| 길이 | 편수 | 조회수 중앙값 | 좋아요율 | 기간 내 편수 | 기간 내 조회수 중앙값 | 기간 내 좋아요율 |")
+    print("|---|---|---|---|---|---|---|")
+    for a, b in LENGTH_BINS:
+        g = [m for m in full if a <= m["duration"] <= b]
+        p = [m for m in peak if a <= m["duration"] <= b]
+        print(f"| {a}–{b}초 | {len(g)} | {median([m['view_count'] for m in g])} | {like_rate(g)} "
+              f"| {len(p)} | {median([m['view_count'] for m in p])} | {like_rate(p)} |")
+
+    print(f"\n### 좋아요율 4분위 ({lo}~{hi} 업로드 {len(peak)}편)\n")
+    print("| 구간 | 좋아요율 중앙값 | 조회수 중앙값 | 길이 중앙값 |\n|---|---|---|---|")
+    ranked, q = sorted(peak, key=lambda m: m["like_count"] / m["view_count"]), len(peak) // 4
+    for i in range(4):
+        g = ranked[i * q : (i + 1) * q if i < 3 else None]
+        print(f"| {i + 1}분위 | {like_rate(g)} | {median([m['view_count'] for m in g])} "
+              f"| {median([m['duration'] for m in g])}초 |")
+    print(f"\n- 전체 좋아요율 중앙값 {like_rate(full)}")
 
     print("\n### 상위 15편\n")
     for m in sorted(meta, key=lambda m: -m["view_count"])[:15]:
-        print(f"- {m['view_count']:,} · {m['duration'] or '?'}초 · {m['title']}")
+        lr = f" · 좋아요 {m['like_count'] / m['view_count']:.2%}" if m["like_count"] is not None else ""
+        print(f"- {m['view_count']:,} · {m['duration'] or '?'}초{lr} · {m['title']}")
+
+    print("\n### 전기 관련 영상\n")
+    print("| 조회수 | 길이 | 좋아요율 | 업로드 | 제목 |\n|---|---|---|---|---|")
+    for m in sorted((m for m in full if re.search(ELECTRIC, m["title"])), key=lambda m: -m["view_count"]):
+        print(f"| {man(m['view_count'])} | {m['duration']}초 | {m['like_count'] / m['view_count']:.2%} "
+              f"| {m['upload_date']} | {m['title'].strip()} |")
 
 
 if __name__ == "__main__":
