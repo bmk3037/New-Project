@@ -43,17 +43,28 @@ def main(name):
     print(f"## {name}: 숏츠 {len(rows)}편\n")
     print(f"- 조회수 중앙값 {median(views)}, 상위 10% 기준 {views[int(len(views) * 0.9)]:,}\n")
 
-    print("| 제목 특징 | 해당 편수 | 해당 중앙값 | 비해당 중앙값 |\n|---|---|---|---|")
-    feats = dict(TITLE_FEATURES)
-    for label, pat in feats.items():
-        yes = [r[1] for r in rows if re.search(pat, r[2])]
-        no = [r[1] for r in rows if not re.search(pat, r[2])]
-        print(f"| {label} | {len(yes)} | {median(yes)} | {median(no)} |")
-    yes = [r[1] for r in rows if len(r[2]) > LONG_TITLE]
-    no = [r[1] for r in rows if len(r[2]) <= LONG_TITLE]
-    print(f"| 제목 {LONG_TITLE}자 초과 | {len(yes)} | {median(yes)} | {median(no)} |\n")
-
     cut_hi, cut_lo = views[int(len(views) * 0.9)], views[int(len(views) * 0.1)]
+    # 업로드 시기가 조회수를 크게 가른다(초기엔 낮고 최근엔 덜 쌓였다). 그래서 상위 10%가 나온 기간 안에서도 따로 본다
+    dated = [m for m in meta if m["upload_date"]]
+    top_dates = [m["upload_date"] for m in dated if m["view_count"] >= cut_hi]
+    lo, hi = (min(top_dates), max(top_dates)) if top_dates else (None, None)
+    peak = [(m["id"], m["view_count"], m["title"]) for m in dated if lo and lo <= m["upload_date"] <= hi]
+
+    tests = [(label, lambda t, pat=pat: re.search(pat, t)) for label, pat in TITLE_FEATURES.items()]
+    tests.append((f"제목 {LONG_TITLE}자 초과", lambda t: len(t) > LONG_TITLE))
+    if peak:
+        print(f"'기간 내'는 상위 10%가 나온 {lo}~{hi}에 올라온 {len(peak)}편입니다.\n")
+    print("| 제목 특징 | 해당 편수 | 해당 중앙값 | 비해당 중앙값 | 기간 내 편수 | 기간 내 해당 | 기간 내 비해당 |")
+    print("|---|---|---|---|---|---|---|")
+    for label, hit in tests:
+        cells = []
+        for group in (rows, peak):
+            yes = [r[1] for r in group if hit(r[2])]
+            no = [r[1] for r in group if not hit(r[2])]
+            cells += [str(len(yes)), median(yes), median(no)]
+        print(f"| {label} | " + " | ".join(cells) + " |")
+    print()
+
     for label, group in (("상위 10%", [m for m in meta if m["view_count"] >= cut_hi]),
                          ("하위 10%", [m for m in meta if m["view_count"] <= cut_lo])):
         if not group:
@@ -71,9 +82,7 @@ def main(name):
     full = [m for m in meta if m["duration"] and m["like_count"] is not None and m["upload_date"]]
     if not full:
         return
-    top = [m for m in full if m["view_count"] >= cut_hi]
-    lo, hi = min(m["upload_date"] for m in top), max(m["upload_date"] for m in top)
-    # 길이는 업로드 시기와 얽혀 있다(초기엔 짧고 최근엔 길다). 상위 10%가 나온 기간 안에서도 따로 본다
+    # 길이도 업로드 시기와 얽혀 있다(초기엔 짧고 최근엔 길다)
     peak = [m for m in full if lo <= m["upload_date"] <= hi]
     print(f"\n### 길이 구간\n\n'기간 내'는 상위 10%가 나온 {lo}~{hi}에 올라온 {len(peak)}편입니다.\n")
     print("| 길이 | 편수 | 조회수 중앙값 | 좋아요율 | 기간 내 편수 | 기간 내 조회수 중앙값 | 기간 내 좋아요율 |")
