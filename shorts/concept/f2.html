@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=base.css></head><body><div class=frame></div>
+<svg width=1080 height=1920 style="position:absolute;inset:0">
+ <defs>
+  <pattern id=h width=16 height=16 patternUnits=userSpaceOnUse patternTransform="rotate(45)"><line x1=0 y1=0 x2=0 y2=16 stroke=#222 stroke-width=2 /></pattern>
+  <pattern id=h2 width=16 height=16 patternUnits=userSpaceOnUse patternTransform="rotate(-45)"><line x1=0 y1=0 x2=0 y2=16 stroke=#9aa3aa stroke-width=2 /></pattern>
+  <filter id=g x=-50% y=-50% width=200% height=200%><feGaussianBlur stdDeviation=14 /></filter>
+ </defs>
+ <text x=120 y=170 class=lbl>SECTION A-A · 플러그 날 / 콘센트 접점</text>
+ <!-- socket body hatched -->
+ <rect x=120 y=300 width=840 height=760 fill=url(#h2) stroke=#222 stroke-width=4 />
+ <!-- blade -->
+ <rect x=470 y=200 width=140 height=640 fill=#fff stroke=#222 stroke-width=5 />
+ <rect x=470 y=200 width=140 height=640 fill=url(#h) opacity=.35 />
+ <!-- spring contacts left/right -->
+ <path d="M300 420 L440 520 L440 760 L300 860" fill=#fff stroke=#222 stroke-width=5 />
+ <path d="M780 420 L640 520 L640 760 L780 860" fill=#fff stroke=#222 stroke-width=5 />
+ <!-- gaps: contact only at points -->
+ <rect x=440 y=520 width=30 height=240 fill=#fff />
+ <rect x=610 y=520 width=30 height=240 fill=#fff />
+ <!-- contact points -->
+ <g fill=#D4362A>
+  <circle cx=455 cy=585 r=34 filter=url(#g) opacity=.85 /><circle cx=455 cy=700 r=28 filter=url(#g) opacity=.85 /><circle cx=625 cy=640 r=34 filter=url(#g) opacity=.85 />
+  <rect x=440 y=575 width=30 height=20 /><rect x=440 y=692 width=30 height=16 /><rect x=610 y=630 width=30 height=20 />
+ </g>
+ <!-- current lines -->
+ <g fill=none stroke=#D4362A stroke-width=6 stroke-linecap=round>
+  <path d="M540 200 L540 400 C540 480 470 560 455 585" /><path d="M520 200 L520 420 C520 560 470 660 455 700" /><path d="M560 200 L560 420 C560 540 610 600 625 640" />
+  <path d="M455 585 L300 520 L190 520" /><path d="M455 700 L300 760 L190 760" /><path d="M625 640 L780 640 L890 640" />
+ </g>
+ <!-- dimension: contact width -->
+ <g stroke=#222 stroke-width=2 fill=none><line x1=380 y1=575 x2=380 y2=595 /><line x1=360 y1=575 x2=420 y2=575 /><line x1=360 y1=595 x2=420 y2=595 /></g>
+ <text x=150 y=1010 class=lblr>● 접촉점 3곳 = 실제로 전기가 지나는 자리</text>
+</svg>
+<div class=side style="left:90px;top:1080px;font-size:44px;color:#222;font-weight:700"></div>
+<div class=cap>면이 아니라<br><em>점</em>으로 닿습니다</div>
+<div class=tb><div class=t>플러그 접점 단면</div><div class=m>노빠꾸 현장</div><div class=r>DWG-006</div><div class=m>SHEET 2/3</div><div class=m>S: NTS</div></div>
+</body></html>
