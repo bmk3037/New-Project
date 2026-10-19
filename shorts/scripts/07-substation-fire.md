@@ -4,7 +4,7 @@
 - 제목: 변전소에 불이 났는데 동네 불은 안 꺼졌습니다
 - 예비 제목: 대전 변전소 화재, 그날 밤 정전이 없었던 이유
 - 분류: 뉴스 속 설비 (`topics.md` 지금 뜨거운 소재 1위)
-- 목표 길이: 100초 (내레이션 약 600자, 공백 제외)
+- 목표 길이: 약 92초 (내레이션 약 540자, 공백 제외. 6.3자/초 기준 추정)
 - 올리는 시기: **최대한 빨리.** 뉴스가 나온 2026-10-13 기준으로 이미 일주일이 지났습니다.
 - 데이터 연결: 비트 6, 변압기를 켜 둔 채로 기름 속 가스·온도 기록 (대본 02와 이어짐)
 
@@ -36,7 +36,7 @@
 | 비트 | 시간 | 화면 | 내레이션 | 자막 강조 |
 |---|---|---|---|---|
 | 1. 훅 | 0–4초 | **실사 A (Flow)**: 밤, 변전소 철골 구조물 너머로 연기가 피어오른다. 화면 구석에 "AI 재연" 표기. 3초에 **실사 B (Flow)**: 같은 밤, 아파트 창문들이 하나도 빠짐없이 환하게 켜져 있다. | 지난 13일 저녁, 대전의 한 변전소에서 불이 났습니다. 그런데 그 시각, 동네 불은 하나도 안 꺼졌습니다. | 동네 불은 **하나도** |
-| 2. 균열 | 4–18초 | **도면 SHEET 1**: 단선도. 위에서 154kV 선이 내려와 변압기(TR)를 지나 22.9kV로 바뀌고, 아래로 동네 블록들에 갈라진다. 변압기 기호에 붉은 외곽선. | 변전소는 동네로 들어가는 전기의 관문이거든요. 보통 15만 4천 볼트로 들어온 전기를 2만 2천9백 볼트로 낮춰서 동네로 내보내는 곳이죠. 관문에 불이 났는데 정전이 없었다니, 이상한 일입니다. | 전기의 **관문** |
+| 2. 균열 | 4–18초 | **도면 SHEET 1**: 단선도. 위에서 154kV 선이 내려와 변압기(TR)를 지나 22.9kV로 바뀌고, 아래로 동네 블록들에 갈라진다. 변압기 기호에 붉은 외곽선. | 변전소는 동네로 들어가는 전기의 관문이거든요. 보통 15만 4천 볼트로 들어온 전기를 2만 2천9백 볼트로 낮춰서 동네로 내보내는 곳이죠. 우리 집 콘센트 220볼트의 700배가 넘는 전기가 들어오는 자리입니다. 관문에 불이 났는데 정전이 없었다니, 이상한 일입니다. | 전기의 **관문** |
 | 3. 딜레마 | 18–35초 | **도면 SHEET 2**: 변압기 한 대가 동네 전체를 맡는 단선도. 그 한 대에 붉은 엑스가 찍히자 아래 동네 블록이 회색으로 꺼진다. 이어서 동네마다 변전소가 하나씩 붙은 그림이 그려지다가, 도면이 빽빽해지며 붉은 엑스. | 변압기 한 대가 동네 전체를 맡으면, 그 한 대가 멈추는 순간 동네가 깜깜해집니다. 그렇다고 동네마다 변전소를 몇 개씩 지을 수도 없죠. | 한 대가 멈추면 **깜깜** |
 | 4. 발상 전환 | 35–68초 | **도면 SHEET 3**: 변압기 TR1·TR2·TR3이 나란히 선 단선도. TR2가 붉게 빛나고, 그 위아래 차단기 기호가 '열림'으로 바뀐다. 붉은 전류선이 TR1·TR3으로 나뉘어 흐른다. 이어서 옆 변전소에서 점선 연계선이 이어지며 전류가 들어온다. | 그래서 변전소는 처음부터 하나쯤은 고장 나도 된다는 전제로 짓습니다. 변압기를 여러 대 나란히 두고, 한 대에 문제가 생기면 보호 장치가 그 한 대만 순식간에 떼어 냅니다. 남은 변압기들이 짐을 나눠 지고, 그래도 모자라면 옆 변전소에서 전기를 끌어오죠. 길 하나가 막혀도, 돌아가는 길이 이미 그려져 있는 셈입니다. | 그 **한 대만** 떼어 냅니다 / 돌아가는 길 |
 | 5. 숫자 | 68–82초 | **도면 SHEET 4**: 큰 글씨 "N-1". 설비 아이콘 N개 중 하나가 붉은 엑스로 빠지고, 옆 막대 게이지는 100%를 유지한다. 이어서 뉴스 수치 오버레이: 1시간 7분 / 정전 신고 0건. | 전력망에서는 이걸 N 빼기 1이라고 부릅니다. 설비 N개 중에 하나가 빠져도 전기는 멈추지 않아야 한다는 규칙이죠. 이번 불은 1시간 7분 만에 꺼졌고, 정전 신고는 한 건도 없었습니다. 정확한 원인은 아직 조사 중이고요. | **N−1** / 정전 신고 **0건** |
@@ -56,6 +56,7 @@
 변전소는 동네로 들어가는 전기의 관문이거든요.
 보통 15만 4천 볼트로 들어온 전기를,
 2만 2천9백 볼트로 낮춰서 동네로 내보내는 곳이죠.
+우리 집 콘센트 이백이십 볼트의, 칠백 배가 넘는 전기가 들어오는 자리입니다.
 관문에 불이 났는데 정전이 없었다니, 이상한 일입니다.
 
 변압기 한 대가 동네 전체를 맡으면,
@@ -89,23 +90,41 @@
 - 속도는 기본보다 조금 빠르게 (1.05~1.1배)
 - 첫 두 문장만 한 단계 낮고 진지하게
 
-## 화면 만들기 (Flow 50크레딧 안에서)
+## 화면 만들기
 
-| 컷 | 만드는 법 | 크레딧 (참고 기사 기준) |
+영상 조립은 `shorts/render/`에서 자동으로 합니다(`render/README.md`).
+
+| 자리 | 쓰는 곳 | 만드는 법 |
 |---|---|---|
-| 실사 A: 밤 변전소 연기 | Flow 영상 6초 | 10 |
-| 실사 B: 환한 아파트 창문 | Flow 영상 6초 (첫 장면과 끝 장면에 같이 씀) | 10 |
-| 도면 SHEET 1~5 | 코드로 그려 움직임을 넣어 렌더링 (`concept/` 방식) | 0 |
-| **합계** | | **약 20** |
+| **사진 A** | 훅 0~4초: 밤 변전소, 연기 | Flow 사진 → 천천히 확대 |
+| **사진 B** | 훅 4~8초 + 마지막 장면: 불 켜진 아파트 | Flow 사진 → 천천히 확대 |
+| **사진 C** | 비트 2 시작: 낮의 변전소 전경 | Flow 사진 → 천천히 확대 |
+| **사진 D** | 비트 6 시작: 큰 변압기 근접 | Flow 사진 → 천천히 확대 |
+| 도면 SHEET 1~5 | 나머지 전부 | 코드로 그림 (크레딧 0) |
 
-남는 크레딧은 다음 편 실사 컷이나 다시 뽑기용으로 둡니다. 실제 차감액은 Flow 화면에서 확인하세요.
+- **크레딧:** 사진 4장 × 후보 여러 장입니다. 사진 한 장당 크레딧은 Flow 화면에서 확인하세요.
+- **사진 대신 영상:** 훅 A만 6초 영상으로 바꾸면 더 강해집니다. 참고 기사 기준으로 약 10크레딧입니다. `A.mp4`로 넣으면 엔진이 알아서 영상으로 씁니다.
 
-**Flow 프롬프트**
+### Flow 사진 프롬프트
 
-- **A:** Night view of a generic electrical substation with steel lattice structures and large transformers, thin smoke rising from one transformer, emergency lights reflecting, no flames visible, no people, slow push in, photorealistic, vertical 9:16, 6 seconds, no text, no logos, no signs
-- **B:** Night view of a Korean apartment complex, every window warmly lit, calm and quiet, slow upward tilt, photorealistic, vertical 9:16, 6 seconds, no text, no logos
+모든 프롬프트 끝에 공통 문구를 붙입니다. 비율은 **9:16 세로**로 설정하세요.
 
-**실사 A는 특정 변전소가 아닌 일반 변전소로 그립니다.** 화면에 "AI 재연"이라고 적어 실제 화재 영상으로 오해받지 않게 합니다.
+> **공통:** photorealistic, shot on a full-frame camera, natural color, cinematic but realistic lighting, vertical 9:16 composition with the main subject in the upper two thirds (the lower third will hold subtitles), no text, no letters, no signs, no logos, no watermarks, no people's faces
+
+| 자리 | 프롬프트 |
+|---|---|
+| **A** 밤 변전소, 연기 | Night view of an outdoor electrical substation in a Korean city, rows of steel lattice structures, insulators and large power transformers, thin grey smoke rising from one transformer, orange emergency light reflecting on the smoke, wet asphalt, no flames, seen from outside the fence at a slightly low angle |
+| **B** 불 켜진 아파트 | Night view of a Korean high-rise apartment complex, every single window warmly lit, calm clear night sky, a few street lamps below, seen from a low angle across a small park, peaceful mood |
+| **C** 낮의 변전소 | Daytime wide view of an outdoor electrical substation on the edge of a Korean city, steel lattice towers and power lines converging into it, large grey transformers in neat rows, overcast soft light, apartment buildings in the far background |
+| **D** 변압기 근접 | Close-up of a large oil-filled power transformer in a substation, grey steel tank with cooling radiator fins, high-voltage bushings on top, oil level gauge, clean industrial detail, soft daylight, shallow depth of field |
+
+**뽑는 요령**
+
+1. 자리마다 2~4장 뽑고 가장 자연스러운 한 장을 고릅니다.
+2. 글자나 간판이 생겼으면 버리거나, 그 부분을 지우고 다시 뽑습니다.
+3. 받은 파일 이름을 `A.png`, `B.png`, `C.png`, `D.png`로 바꿔서 `shorts/render/ep07/assets/`에 넣습니다.
+
+**AI 재연 표기:** 사진 A는 실제 서대전변전소가 아닌 일반 변전소입니다. 영상에 "AI 재연" 표기가 자동으로 붙습니다.
 
 ## 첫 화면
 

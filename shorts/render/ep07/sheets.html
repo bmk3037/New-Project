@@ -1,0 +1,151 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../style.css"></head>
+<body>
+<div id="paper"></div>
+<div id="frame"></div>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="16"/></filter>
+    <pattern id="hatch" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="16" stroke="#9aa3aa" stroke-width="2"/></pattern>
+    <symbol id="tr" viewBox="-60 -95 120 190" overflow="visible">
+      <circle cx="0" cy="-35" r="55" fill="none" stroke="#222" stroke-width="5"/>
+      <circle cx="0" cy="35" r="55" fill="none" stroke="#222" stroke-width="5"/>
+    </symbol>
+    <symbol id="house" viewBox="0 0 110 110" overflow="visible">
+      <path d="M8 50 L55 10 L102 50 L102 105 L8 105 Z" fill="inherit" stroke="#222" stroke-width="4"/>
+      <rect x="30" y="58" width="18" height="18" fill="none" stroke="#222" stroke-width="3"/>
+      <rect x="62" y="58" width="18" height="18" fill="none" stroke="#222" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- SHEET 1: 변전소는 관문. 154kV -> TR -> 22.9kV -> 동네 -->
+<svg class="scene" id="s1" viewBox="0 0 1080 1920">
+  <text x="120" y="170" class="lbl">SINGLE LINE · 변전소 단선도</text>
+  <path class="ln" d="M540 210 L540 400" data-draw="0 0.18"/>
+  <text x="570" y="270" class="lbl" data-fade="0.05 0.15">154 kV</text>
+  <circle cx="540" cy="495" r="95" class="glow" fill-opacity="0.45" data-fade="0.42 0.5"/>
+  <g data-fade="0.15 0.3"><use href="#tr" x="480" y="400" width="120" height="190"/></g>
+  <rect x="455" y="390" width="170" height="210" class="redl" data-fade="0.42 0.5"/>
+  <text x="650" y="500" class="lblr" data-fade="0.42 0.5">변전소</text>
+  <path class="ln" d="M540 590 L540 720" data-draw="0.3 0.42"/>
+  <text x="570" y="670" class="lbl" data-fade="0.35 0.45">22.9 kV</text>
+  <path class="ln" d="M200 720 L880 720" data-draw="0.45 0.6"/>
+  <path class="ln" d="M240 720 L240 820 M410 720 L410 820 M580 720 L580 820 M750 720 L750 820" data-draw="0.55 0.68"/>
+  <g data-fade="0.65 0.8" fill="#fff">
+    <use href="#house" x="185" y="820" width="110" height="110"/><use href="#house" x="355" y="820" width="110" height="110"/>
+    <use href="#house" x="525" y="820" width="110" height="110"/><use href="#house" x="695" y="820" width="110" height="110"/>
+  </g>
+  <text x="120" y="1000" class="lbl" data-fade="0.7 0.8">동네 (배전선로)</text>
+</svg>
+
+<!-- SHEET 2: 한 대에 맡기면 깜깜. 동네마다 변전소는 불가 -->
+<svg class="scene" id="s2" viewBox="0 0 1080 1920">
+  <text x="120" y="170" class="lbl">CASE A · 변압기 1대가 전부 맡을 때</text>
+  <path class="ln" d="M540 210 L540 300"/>
+  <use href="#tr" x="480" y="300" width="120" height="190"/>
+  <path class="ln" d="M540 490 L540 560 M180 560 L900 560 M220 560 L220 620 M380 560 L380 620 M540 560 L540 620 M700 560 L700 620 M860 560 L860 620"/>
+  <g fill="#fff">
+    <use href="#house" x="165" y="620" width="110" height="110" class="blk" data-cls="0.32 off"/>
+    <use href="#house" x="325" y="620" width="110" height="110" class="blk" data-cls="0.34 off"/>
+    <use href="#house" x="485" y="620" width="110" height="110" class="blk" data-cls="0.36 off"/>
+    <use href="#house" x="645" y="620" width="110" height="110" class="blk" data-cls="0.38 off"/>
+    <use href="#house" x="805" y="620" width="110" height="110" class="blk" data-cls="0.40 off"/>
+  </g>
+  <g data-fade="0.22 0.3"><path d="M455 320 L625 470 M625 320 L455 470" stroke="#D4362A" stroke-width="22" stroke-linecap="square"/></g>
+  <text x="120" y="800" class="lblr" data-fade="0.38 0.45">● 한 대가 멈추면 전부 정전</text>
+  <!-- 동네마다 변전소 -->
+  <g data-fade="0.58 0.7">
+    <text x="120" y="880" class="lbl">CASE B · 동네마다 변전소를 지으면</text>
+    <use href="#tr" x="190" y="910" width="60" height="95"/><use href="#tr" x="350" y="910" width="60" height="95"/>
+    <use href="#tr" x="510" y="910" width="60" height="95"/><use href="#tr" x="670" y="910" width="60" height="95"/><use href="#tr" x="830" y="910" width="60" height="95"/>
+  </g>
+  <g data-fade="0.82 0.9"><path d="M170 900 L910 1030 M910 900 L170 1030" stroke="#D4362A" stroke-width="18" stroke-linecap="square" opacity=".9"/></g>
+</svg>
+
+<!-- SHEET 3: 여러 대 나란히, 한 대만 떼어 내고 돌아가는 길 -->
+<svg class="scene" id="s3" viewBox="0 0 1080 1920">
+  <text x="120" y="170" class="lbl">CASE C · 변압기 여러 대 + 연계선</text>
+  <path class="ln" d="M160 230 L760 230"/><text x="780" y="240" class="lbl">154 kV 모선</text>
+  <path class="ln" d="M160 760 L760 760"/><text x="780" y="770" class="lbl">22.9 kV 모선</text>
+  <!-- 세 갈래: 차단기(사각) - 변압기 - 차단기 -->
+  <g>
+    <path class="ln" d="M260 230 L260 300 M260 340 L260 400 M260 590 L260 640 M260 680 L260 760"/>
+    <rect x="240" y="300" width="40" height="40" fill="#fff" stroke="#222" stroke-width="4"/><rect x="240" y="640" width="40" height="40" fill="#fff" stroke="#222" stroke-width="4"/>
+    <use href="#tr" x="200" y="400" width="120" height="190"/><text x="200" y="390" class="lbl">TR1</text>
+  </g>
+  <g>
+    <path class="ln" d="M460 230 L460 300 M460 340 L460 400 M460 590 L460 640 M460 680 L460 760"/>
+    <rect x="440" y="300" width="40" height="40" fill="#fff" stroke="#222" stroke-width="4" data-out="0.34 0.38"/>
+    <rect x="440" y="640" width="40" height="40" fill="#fff" stroke="#222" stroke-width="4" data-out="0.34 0.38"/>
+    <g data-fade="0.34 0.38"><path d="M440 340 L485 296" stroke="#D4362A" stroke-width="6"/><path d="M440 680 L485 636" stroke="#D4362A" stroke-width="6"/></g>
+    <circle cx="460" cy="495" r="110" class="glow" fill-opacity="0.6" data-fade="0.24 0.3"/>
+    <use href="#tr" x="400" y="400" width="120" height="190"/><text x="400" y="390" class="lblr">TR2</text>
+  </g>
+  <g>
+    <path class="ln" d="M660 230 L660 300 M660 340 L660 400 M660 590 L660 640 M660 680 L660 760"/>
+    <rect x="640" y="300" width="40" height="40" fill="#fff" stroke="#222" stroke-width="4"/><rect x="640" y="640" width="40" height="40" fill="#fff" stroke="#222" stroke-width="4"/>
+    <use href="#tr" x="600" y="400" width="120" height="190"/><text x="600" y="390" class="lbl">TR3</text>
+  </g>
+  <!-- 전류: 처음엔 셋 다, TR2가 빠지면 TR1·TR3으로 -->
+  <path class="cur" d="M285 240 L285 750" data-draw="0.05 0.18"/>
+  <path class="cur" d="M485 240 L485 750" data-draw="0.05 0.18" data-out="0.36 0.42"/>
+  <path class="cur" d="M685 240 L685 750" data-draw="0.05 0.18"/>
+  <text x="120" y="840" class="lblr" data-fade="0.38 0.45">● TR2만 떼고, 나머지가 나눠 진다</text>
+  <!-- 옆 변전소 연계 -->
+  <g data-fade="0.62 0.7">
+    <rect x="800" y="900" width="160" height="120" fill="#fff" stroke="#222" stroke-width="4" stroke-dasharray="12 8"/>
+    <text x="812" y="970" class="lbl">옆 변전소</text>
+  </g>
+  <path class="ln" d="M720 760 L720 960 L800 960" stroke-dasharray="14 10" data-fade="0.66 0.72"/>
+  <path class="cur" d="M800 980 L700 980 L700 770" data-draw="0.72 0.88"/>
+  <text x="120" y="1060" class="lblr" data-fade="0.8 0.88">● 막히면 돌아가는 길</text>
+</svg>
+
+<!-- SHEET 4: N-1 -->
+<svg class="scene" id="s4" viewBox="0 0 1080 1920">
+  <text x="120" y="170" class="lbl">RULE · 신뢰도 기준</text>
+  <text x="540" y="430" text-anchor="middle" class="big" font-size="260" data-fade="0 0.12">N−1</text>
+  <g data-fade="0.12 0.25">
+    <use href="#tr" x="150" y="520" width="80" height="126"/><use href="#tr" x="290" y="520" width="80" height="126"/>
+    <use href="#tr" x="430" y="520" width="80" height="126"/><use href="#tr" x="570" y="520" width="80" height="126"/>
+  </g>
+  <g data-fade="0.3 0.36"><path d="M560 530 L660 640 M660 530 L560 640" stroke="#D4362A" stroke-width="18" stroke-linecap="square"/></g>
+  <rect x="800" y="480" width="120" height="220" fill="none" stroke="#222" stroke-width="4"/>
+  <rect x="800" y="480" width="120" height="220" fill="#D4362A" data-grow="0.12 0.3"/>
+  <text x="860" y="740" text-anchor="middle" class="lbl" data-fade="0.3 0.38">공급 100%</text>
+  <g data-fade="0.6 0.68"><text x="120" y="880" class="lbl">진화</text><text x="120" y="960" font-family="JBM" font-size="72" fill="#222">1시간 7분</text></g>
+  <g data-fade="0.72 0.8"><text x="600" y="880" class="lbl">정전 신고</text><text x="600" y="960" font-family="JBM" font-size="72" fill="#D4362A">0건</text></g>
+  <text x="120" y="1050" class="lbl" data-fade="0.86 0.94">원인: 조사 중</text>
+</svg>
+
+<!-- SHEET 5: 기름 속 가스와 온도를 숫자로 -->
+<svg class="scene" id="s5" viewBox="0 0 1080 1920">
+  <text x="120" y="170" class="lbl">SECTION · 유입 변압기 단면</text>
+  <rect x="260" y="210" width="560" height="440" fill="url(#hatch)" stroke="#222" stroke-width="5"/>
+  <rect x="380" y="270" width="320" height="330" fill="#fff" stroke="#222" stroke-width="5"/>
+  <rect x="400" y="300" width="60" height="270" fill="none" stroke="#222" stroke-width="4"/><rect x="620" y="300" width="60" height="270" fill="none" stroke="#222" stroke-width="4"/>
+  <rect x="480" y="300" width="120" height="270" fill="none" stroke="#222" stroke-width="3"/>
+  <text x="840" y="300" class="lbl">절연유</text>
+  <g data-fade="0.12 0.22" fill="#D4362A">
+    <circle cx="320" cy="560" r="10"/><circle cx="340" cy="500" r="7"/><circle cx="310" cy="440" r="12"/><circle cx="745" cy="520" r="9"/><circle cx="770" cy="450" r="6"/><circle cx="350" cy="380" r="6"/>
+  </g>
+  <text x="840" y="470" class="lblr" data-fade="0.18 0.26">녹아든 가스</text>
+  <g transform="translate(140,750)">
+    <text x="0" y="-20" class="lbl" data-fade="0.3 0.36">기름 속 가스 · 30일</text>
+    <path class="ln" d="M0 0 L0 300 L800 300" data-draw="0.3 0.38"/>
+    <path class="ln" d="M0 230 L60 228 L120 232 L180 226 L240 230 L300 228 L360 231 L420 227 L480 229 L540 224" data-draw="0.38 0.6"/>
+    <path class="cur" d="M540 224 L600 205 L660 170 L720 120 L790 60" data-draw="0.6 0.72"/>
+    <text x="560" y="40" class="lblr" data-fade="0.7 0.76">평소보다 ↑</text>
+    <text x="0" y="345" class="lbl">D-30</text><text x="740" y="345" class="lbl">오늘</text>
+  </g>
+  <text x="120" y="1140" font-size="24" fill="#888" font-family="Pretendard">예시 화면 · 실제 데이터 아님</text>
+</svg>
+
+<div id="tb"><div class="t"></div><div class="m">노빠꾸 현장</div><div class="r"></div><div class="m" id="sheet"></div><div class="m">S: NTS</div></div>
+<div id="ph"></div>
+<div id="tag"></div>
+<div id="cap"></div>
+<script src="../engine.js"></script>
+</body></html>
