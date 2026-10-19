@@ -1,61 +1,55 @@
 # 06. 멀티탭에 전기난로를 꽂으면 안 되는 진짜 이유
 
-- 채널: 노빠꾸 설비
+- 채널: 신비한 설비사전 (이름 변경 검토 중, `channel.md`)
+- 방식: 신비한 건축사전 전면 벤치마킹, 소재만 설비 (`structure.md`, `visual.md`)
 - 올리는 순서: 1편 (`topics.md` 첫 10편 중 1번)
 - 제목: 멀티탭에 전기난로를 꽂으면 안 되는 진짜 이유
-- 예비 제목: 멀티탭 용량이 넉넉해도 불이 나는 이유 / 전기난로 플러그, 오늘 밤 꼭 만져보세요
-- 시리즈: 생활 속 전기
+- 예비 제목: 멀티탭 용량이 넉넉해도 불이 나는 이유
 - 목표 길이: 100초 (내레이션 약 560자, 공백 제외)
 - 올리는 시기: 11월 첫 주. 난방 기구를 꺼내는 때입니다.
 - 데이터 연결: 비트 6, 배전반 단자 온도 기록
 
 ## 기획 의도
 
-- **누구나 들어본 경고에서 시작합니다.** "난로는 멀티탭에 꽂지 마라"는 다들 알지만 이유는 모릅니다.
-- **반전은 계산입니다.** 용량을 계산해 보면 넉넉한데도 불이 납니다. 범인은 멀티탭 전체가 아니라 **플러그가 닿는 점 하나**입니다.
-- **원리가 그대로 현장으로 이어집니다.** 접점 하나가 달아오르는 원리는 공장 배전반의 덜 조인 단자와 똑같습니다. 그래서 "현장에선 온도를 숫자로 본다"로 억지 없이 넘어갑니다.
-- **마지막에 행동 하나를 줍니다.** "오늘 밤 플러그를 만져보세요." 시청자가 바로 해볼 수 있는 행동이라 댓글과 공유가 생깁니다.
+- **누구나 들어본 경고에서 시작합니다.** "난로는 멀티탭에 꽂지 마라"는 다들 알지만 이유는 모릅니다. 건축사전의 '익숙한 것 + 낯선 사실' 공식 그대로입니다.
+- **반전은 계산입니다.** 계산해 보면 넉넉한데 불이 납니다. 범인은 멀티탭 전체가 아니라 **플러그가 닿는 점 하나**입니다. 건축사전의 '발상 전환' 비트 자리입니다.
+- **데이터 연결도 같은 원리로 이어집니다.** 접점 하나가 달아오르는 원리는 공장 배전반의 덜 조인 단자와 같습니다. 그래서 비트 6의 '지금 여기로' 자리에서 감탄형 한 문장으로 자연스럽게 넘어갑니다.
+- **마지막에 행동 하나를 줍니다.** "오늘 밤 플러그 한번 만져보세요." 시청자가 자기 집을 떠올리며 끝납니다.
 
 ## 대본
 
-| 비트 | 시간 | 화면 | 내레이션 | 자막 강조 |
+| 비트 | 시간 | 화면 (건축사전 스타일) | 내레이션 | 자막 강조 |
 |---|---|---|---|---|
-| 1. 장면 열기 | 0–5초 | 겨울 밤 거실. 전기난로의 주황 불빛, 소파 뒤 바닥의 멀티탭에 난로 플러그가 꽂혀 있다. 느린 돌리 인. | 겨울만 되면 꼭 나오는 경고가 있죠. 전기난로는 멀티탭에 꽂지 마라. | **멀티탭**에 꽂지 마라 |
-| 2. 균열 | 5–20초 | 멀티탭 뒷면 클로즈업(정격 표시는 편집에서 얹음). 화면 위 숫자: 16A → 4,000W, 난로 2,000W, 절반을 채우는 막대. | 근데 이상합니다. 뒷면에 16A라고 적힌 멀티탭은 4,000와트까지 버팁니다. 전기난로 한 대는 보통 2,000와트 안팎이고요. 계산으로는 절반밖에 안 씁니다. | 4,000W 중 **절반** |
-| 3. 딜레마 | 20–35초 | 더 큰 멀티탭으로 바꿔 끼우는 손. 화면이 플러그 쪽으로 계속 파고든다. | 그런데도 불은 납니다. 그럼 더 큰 멀티탭을 사면 될까요. 아닙니다. 불은 멀티탭 전체가 아니라, 아주 작은 점 하나에서 시작되거든요. | 작은 **점 하나** |
-| 4. 발상 전환 | 35–70초 | 플러그와 콘센트 접점의 단면. 넓은 금속 면을 지나던 붉은 전류선이 헐거운 접점에서 몇 가닥으로 좁아지고, 그 자리가 붉게 달아오른다. 표면이 까맣게 변하며 전류선이 더 좁아지고, 붉은빛이 더 커진다. 시계 바늘이 몇 시간 돈다. | 플러그 날과 멀티탭 속 금속이 맞닿는 자리입니다. 오래 쓰거나 헐거워지면, 이 둘은 면이 아니라 몇 개의 점으로만 닿습니다. 같은 전기가 좁은 길로 몰리니 거기서 열이 나죠. 열이 나면 금속 표면이 산화돼 까매지고, 그러면 전기가 더 안 통해서, 열이 또 납니다. 스스로 키우는 열입니다. 드라이어는 몇 분이면 끝나지만, 난로는 몇 시간씩 같은 전기를 계속 끌어당깁니다. 그 몇 시간 동안 점 하나가 계속 달아오르는 겁니다. | **스스로 키우는 열** / 몇 분 vs **몇 시간** |
-| 5. 숫자로 못 박기 | 70–82초 | 난로 플러그가 멀티탭에서 빠져 벽 콘센트로 옮겨 꽂힌다. 화면 위에 와트를 더하는 계산. | 그래서 한국소비자원도 온열기처럼 전기를 많이 쓰는 제품은 벽 콘센트에 따로 꽂으라고 권합니다. 멀티탭을 꼭 써야 한다면, 같이 켜는 제품의 와트를 모두 더해서 멀티탭 정격을 넘기지 마세요. | **벽 콘센트**에 따로 |
-| 6. 지금 여기로 | 82–100초 | 공장 배전반 단자를 열화상으로 본 화면. 단자 줄 가운데 하나만 붉다. 이어서 마무리 컷 '설비가 보낸 신호'. 마지막에 다시 겨울 밤 거실로 돌아온다. | (대표 녹음) 현장에선 이렇게 봅니다. 공장 배전반 불도 흔히 덜 조인 단자 하나에서 시작합니다. 그래서 열화상 카메라로 단자 온도를 재고, 그 온도를 매일 숫자로 남기는 곳도 있습니다. (내레이션) 오늘 밤, 난로 플러그를 한번 만져보세요. 따뜻하다면 그 점이 이미 달아오르고 있다는 신호입니다. 바로 뽑아서 벽 콘센트로 옮기고, 콘센트까지 뜨겁다면 꼭 점검을 받으세요. | 플러그가 **따뜻하면** 신호 |
+| 1. 장면 열기 | 0–5초 | 겨울 밤 아파트 거실 디오라마. 위에서 비스듬히 내려다보는 시점. 전기난로의 주황빛, 소파 뒤 바닥 멀티탭에 난로 플러그. 느린 돌리 인. | 겨울만 되면 꼭 듣는 말이 있죠. 전기난로는 멀티탭에 꽂지 마라. | 멀티탭에 꽂지 마라 |
+| 2. 균열 | 5–20초 | 멀티탭이 화면 가운데로 확대되고, 옆에 **붉은 막대 게이지** 두 개가 선다. 4,000W 막대는 텅 비어 있고, 난로 2,000W만큼 절반이 차오른다. | 그런데 계산해 보면 좀 이상합니다. 뒷면에 16A라고 적힌 멀티탭은 4,000와트까지 버티거든요. 전기난로 한 대는 보통 2,000와트 안팎이니까, 절반밖에 안 쓰는 셈이죠. | 4,000W / **절반** (옆에 크게) |
+| 3. 딜레마 | 20–35초 | 더 큰 멀티탭이 내려앉고, 그 위에 두꺼운 **붉은 3D 엑스**가 얹힌다. 카메라가 플러그 쪽으로 파고든다. | 그럼 더 큰 멀티탭을 사면 해결될까요? 그런데 불은 멀티탭 전체가 아니라, 아주 작은 점 하나에서 시작되더라고요. | 점 하나 |
+| 4. 발상 전환 | 35–70초 | 플러그와 멀티탭 속 금속의 **단면**. 회색 금속 사이 맞닿은 자리 몇 군데만 **빛나는 붉은 외곽선**. **치수 화살표**가 넓은 면에서 좁은 점으로 줄어든다. 맞닿은 자리 주변이 까맣게 변하며 붉은빛이 커진다. | 플러그 날과 멀티탭 속 금속이 맞닿는 자리입니다. 오래 쓰거나 헐거워지면 이 둘은 면이 아니라 몇 개의 점으로만 닿거든요. 같은 전기가 좁은 길로 몰리니 거기서 열이 나고, 열이 나면 금속 표면이 산화돼 까매지면서 전기가 더 안 통합니다. 그러면 열이 또 나죠. 스스로 열을 키우는 셈입니다. 드라이어는 몇 분이면 끝나지만, 난로는 몇 시간씩 같은 전기를 끌어당기거든요. | 면이 아니라 **점** / 몇 분 vs **몇 시간** (옆에 크게) |
+| 5. 숫자로 못 박기 | 70–80초 | 난로 플러그가 멀티탭에서 빠져 벽 콘센트로 옮겨 꽂힌다. 비워진 멀티탭 위에 붉은 엑스. | 그래서 한국소비자원도 온열기처럼 전기를 많이 쓰는 제품은 벽 콘센트에 따로 꽂으라고 권합니다. | 벽 콘센트에 따로 |
+| 6. 지금 여기로 | 80–100초 | 공장 배전반 디오라마 단면. 단자 줄 가운데 하나만 **빛나는 붉은 외곽선**. 옆의 **붉은 막대 게이지**가 하루하루 조금씩 차오른다. 마지막에 다시 겨울 밤 거실로 돌아온다. | 공장 배전반도 불은 흔히 덜 조인 단자 하나에서 시작되는데요, 그래서 현장에선 단자 온도를 매일 숫자로 남겨 두기도 하더라고요. 오늘 밤 난로 플러그 한번 만져보세요. 따뜻하다면, 그 점이 이미 달아오르고 있는 거예요. 콘센트까지 뜨겁다면 꼭 점검받으시고요. | 플러그가 **따뜻하면** |
 
-### 마무리 컷: 설비가 보낸 신호
-
-- **배경:** 흰 바탕입니다.
-- **그래프:** 가로축은 날짜(30일), 세로축은 단자 온도입니다. 평소에는 잉크색 선이 평평하다가, 마지막 며칠 동안 레드로 바뀌며 올라갑니다.
-- **문구:** 위쪽에 "단자 3번, 평소보다 +12℃"를 JetBrains Mono로 넣습니다.
-- **예시 표시:** 아래쪽 작은 글씨로 "예시 화면"이라고 넣습니다. 실제 고객 데이터가 아닙니다.
-- **길이:** 2초입니다.
+- **대표 녹음:** 비트 6 첫 문장("공장 배전반도… 하더라고요")은 가능하면 대표가 직접 녹음합니다.
+- **자막:** 내레이션 전체를 2~8글자씩 끊어 흰색 굵은 둥근 고딕, 검은 외곽선으로 화면 60~65% 높이에 띄웁니다. 표의 '자막 강조'는 화면 옆에 크게 띄울 단어입니다.
 
 ## 화면 생성 프롬프트
 
-생성 영상에는 글자, 숫자, 로고, 사람 얼굴을 넣지 않습니다. 숫자와 자막은 편집에서 얹습니다.
+공통 스타일 문구를 모든 컷 앞에 붙입니다. 생성 영상에는 글자, 숫자, 로고, 사람 얼굴을 넣지 않습니다. 붉은 그래픽은 생성으로 안 되면 편집에서 얹습니다.
 
-| 컷 | 길이 | 프롬프트 (영문, 생성용) |
+> **공통:** clean 3D render, diorama-like miniature look, high-angle oblique view, desaturated grey concrete and cool blue palette, soft daylight, cutaway cross-section where needed, red is the only accent color, slow smooth camera, vertical 9:16, no text, no logos, no people's faces
+
+| 컷 | 길이 | 프롬프트 (공통 문구 뒤에 붙임) |
 |---|---|---|
-| 1 | 5초 | Cozy Korean apartment living room at night in winter, an electric heater glowing warm orange, behind the sofa a power strip on the floor with the heater plug inserted, slow dolly in toward the power strip, photorealistic, soft shadows, 9:16, no text, no people |
-| 2 | 6초 | Extreme close-up of a white power strip and a heavy plug, shallow depth of field, clean neutral background, slow push in, 9:16, no text, no logos |
-| 3 | 8초 | Camera moves inside the socket, cutaway cross-section of a plug blade touching a brass contact, red glowing current lines flowing through the wide metal surface, then narrowing into a few tiny contact points that start to glow red-hot, engineering documentary style, 9:16, no text |
-| 4 | 8초 | Same cross-section, the metal surface around the contact points slowly darkens with oxidation, the red glow grows larger, subtle heat shimmer, slow orbit, 9:16, no text |
-| 5 | 5초 | A hand unplugs the heater plug from the power strip and plugs it directly into a wall outlet, warm living room light, 9:16, no text, face not visible |
-| 6 | 6초 | Industrial electrical panel with rows of terminal blocks, thermal camera look in grayscale with one terminal glowing red, slow pan, 9:16, no text, no logos |
+| 1 | 5초 | cozy apartment living room at night in winter seen from above at an angle, an electric heater glowing warm orange, a power strip on the floor behind the sofa with the heater plug inserted, slow dolly in toward the power strip |
+| 2 | 6초 | a white power strip centered on a neutral grey floor, two empty vertical red bar gauges standing beside it, one bar slowly fills to exactly half |
+| 3 | 6초 | a larger power strip lowers into place and a thick solid red 3D X shape lands on top of it, camera then pushes toward the plug |
+| 4 | 10초 | cutaway cross-section of a plug blade inside a socket contact, grey metal parts, only a few tiny contact points glow with a bright red neon outline, the metal around those points slowly darkens, the red glow grows, slow orbit |
+| 5 | 5초 | a heater plug moves out of the power strip and into a wall outlet, a red 3D X appears over the empty power strip |
+| 6 | 8초 | cutaway diorama of an industrial electrical panel with rows of terminal blocks, one terminal outlined in glowing red, a red vertical bar gauge beside it rises a little step by step, slow pan |
 
-- **컷 개수:** 장면 컷은 6개, 약 40초 분량입니다. 나머지는 같은 컷을 늘리거나, 마무리 그래프와 자막 화면으로 채웁니다.
-- **열화상 톤:** 6번 컷의 열화상은 채널 시그니처 톤입니다. 회색조 화면에서 이상 지점만 브랜드 레드 `#D4362A`로 칠합니다.
+장면 컷은 6개, 약 40초 분량입니다. 나머지는 같은 컷을 늘리거나 확대·회전으로 채웁니다.
 
-## 썸네일·첫 화면
+## 첫 화면
 
-- **상단 흰 띠:** "멀티탭 용량은 **넉넉한데**"
-- **하단:** "불은 여기서 납니다"와 함께, 플러그 접점이 붉게 달아오른 단면 정지 화면을 씁니다.
-- **서체와 색:** Pretendard ExtraBold, 잉크 `#222222`, 강조 단어 하나만 레드입니다.
+건축사전은 따로 만든 썸네일 대신 가장 강한 장면이 첫 화면이 됩니다. 이 편은 **4번 컷**(접점만 붉게 빛나는 단면)에 자막 "불은 여기서 시작됩니다"를 올린 프레임을 첫 화면으로 고릅니다.
 
 ## 감수 체크리스트
 
@@ -87,13 +81,14 @@ AI가 출처를 찾아 먼저 본 결과입니다. 체크 표시는 대표이사
 
 ## 설명란
 
-멀티탭 용량이 넉넉해도 불이 나는 건, 플러그가 닿는 점 하나가 달아오르기 때문입니다. 전기난로처럼 오래 켜는 제품은 벽 콘센트에 따로 꽂으세요.
+전기난로는 멀티탭에 꽂지 말라는 말, 계산해 보면 이상합니다. 16A 멀티탭은 4,000와트까지 버티는데 난로는 보통 2,000와트 안팎이거든요. 그런데도 불이 나는 건 멀티탭 전체가 아니라 플러그가 닿는 점 하나 때문이었습니다.
 
-노빠꾸컴퍼니 | 흩어진 현장 데이터를 현장이 쓰는 IT와 AI로
-https://(홈페이지 주소)?utm_source=youtube&utm_content=06
+헐거워진 접점은 면이 아니라 점으로만 닿고, 거기서 난 열이 금속을 산화시켜 열을 더 키웁니다. 몇 시간씩 켜 두는 난로라서 더 위험한 거죠. 오늘 밤 플러그 한번 만져보세요.
 
-#전기난로 #멀티탭 #겨울철화재 #전기안전 #노빠꾸설비
+#전기난로 #멀티탭 #겨울철화재 #전기안전 #지식쇼츠
+
+(맨 아래) 운영: 노빠꾸컴퍼니 · https://(홈페이지 주소)?utm_source=youtube&utm_content=06
 
 ## 고정 댓글
 
-오늘 밤 플러그 만져보셨나요? 따뜻했다면 댓글로 알려주세요. 다음 편은 "콘센트가 따뜻하면 바로 봐야 하는 이유"입니다.
+오늘 밤 플러그 만져보셨나요? 따뜻했다면 댓글로 알려주세요.
