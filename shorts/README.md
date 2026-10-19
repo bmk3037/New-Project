@@ -29,7 +29,7 @@
 pip install -r shorts/requirements.txt
 python3 shorts/collect.py @신비한_건축사전_1 --top 60 --bottom 40 --match "전기|전력|발전|에어컨"
 python3 shorts/analyze.py 신비한_건축사전_1
-python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문이 열리는 이유" --out shorts/scripts/06-elevator.md
+python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문이 열리는 이유" --out shorts/scripts/07-elevator.md
 ```
 
 ## 대본
